@@ -1,0 +1,83 @@
+body, html {border: 0px; margin: 0px; padding: 0px; 
+height:100%; position:relative; width:100%;}
+
+#map-canvas {
+margin: 0;
+padding: 0;
+height: 100%;
+}
+.content{
+    
+    width:100%;
+    height:100%;
+}
+.content-left{
+    color:#fff;
+    background-color:black;
+    width:30%;
+    min-width:300px;
+    height:100%;
+    float:left;
+}
+.content-right{
+    background-color:white;
+    width:70%;
+    height:100%;
+    min-width:500px;
+    float:left;
+}
+
+.forms{
+    margin:20px;
+}
+.forms table{
+    width:100%;
+}
+.forms table input{
+    width:100%;
+    margin-bottom:10px;
+    padding:5px;
+}
+.forms table p{
+    float:left;
+    margin:0px;
+    padding-right:5px;
+}
+.forms table textarea{
+        width:100%;
+    margin-bottom:10px;
+    padding:5px;
+}
+
+.motoboy-cadastrado img {
+    width: 60px;
+}
+
+
+.motoboy-cadastrado table {
+    border: 1px solid #FFFFFF;
+    font-size: 12px;
+    margin: 10px;
+}
+
+
+.motoboy-cadastrado tr {
+    border: 1px solid #FFFFFF;
+}
+
+.motoboy-cadastrado table td {
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+}
+
+             
+.table_status{
+    width:100%;
+    font-size:12px;
+}
+
+.table_status tr td{
+    border:1px solid #ccc;
+}
+
+

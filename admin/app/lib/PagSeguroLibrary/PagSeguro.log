@@ -1,0 +1,94 @@
+{2013/08/22 17:26:00} [Info] PagSeguroTransactionSearchService.SearchByCode(74814CF2-1961-4484-9550-04CA9F5ADDB5) - begin 
+{2013/08/22 17:26:01} [Error] Exception: PagSeguroLibrary XML parsing error: (4) not well-formed (invalid token) 
+{2013/08/22 17:28:17} [Info] PagSeguroTransactionSearchService.SearchByCode(74814CF2-1961-4484-9550-04CA9F5ADDB5) - begin 
+{2013/08/22 17:28:18} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=74814CF2-1961-4484-9550-04CA9F5ADDB5) - end Transaction(Code=74814CF2-1961-4484-9550-04CA9F5ADDB5, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:35:41.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 17:29:25} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 17:29:25} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 17:50:42} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_17,     SenderEmail=adriano@dcanm.com.br)) - begin 
+{2013/08/22 17:50:44} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_17,     SenderEmail=adriano@dcanm.com.br)) - end {1}2D117AE61212EC9664901FA522BC069B 
+{2013/08/22 17:50:44} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_18,     SenderEmail=adriano@s3.com.br)) - begin 
+{2013/08/22 17:50:45} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_18,     SenderEmail=adriano@s3.com.br)) - end {1}3117C8A6D9D9B33AA4CECFA91F19CBFD 
+{2013/08/22 17:51:52} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_19,     SenderEmail=rafa@teste.com.br)) - begin 
+{2013/08/22 17:51:53} [Error] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_19,     SenderEmail=rafa@teste.com.br)) - error [HTTP 400] - BAD_REQUEST [11012] - senderName invalid value: Rafa 
+{2013/08/22 17:52:46} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_20,     SenderEmail='rafa@teste.com.br')) - begin 
+{2013/08/22 17:52:47} [Error] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_20,     SenderEmail='rafa@teste.com.br')) - error [HTTP 400] - BAD_REQUEST [11012] - senderName invalid value: Rafa 
+{2013/08/22 17:53:37} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_21,     SenderEmail='rafa@teste.com.br')) - begin 
+{2013/08/22 17:53:39} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_21,     SenderEmail='rafa@teste.com.br')) - end {1}D6459CE2B7B707B0047F8FA80FCCCA53 
+{2013/08/22 17:53:39} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_22,     SenderEmail='adriano@dcanm.com.br')) - begin 
+{2013/08/22 17:53:40} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_22,     SenderEmail='adriano@dcanm.com.br')) - end {1}DA60F050BEBE10F114107F88353990FC 
+{2013/08/22 17:53:40} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_23,     SenderEmail='adriano@s3.com.br')) - begin 
+{2013/08/22 17:53:41} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_23,     SenderEmail='adriano@s3.com.br')) - end {1}DEAE47EC2F2F7969942BCFBA8640ADC9 
+{2013/08/22 18:04:59} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=FBB9EB-FE7932793298-E224915FBCE2-662566) - begin 
+{2013/08/22 18:05:01} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=FBB9EB-FE7932793298-E224915FBCE2-662566) - end Transaction(Code=2E9F34F7-1163-429E-8070-89EF03F15F23, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:04:14.000-03:00, Reference=fatura_id_22, status=1, itemsCount=1)) 
+{2013/08/22 18:07:01} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:07:03} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:07:36} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:07:37} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:19:41} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:19:42} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:20:13} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:20:14} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:21:38} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:21:39} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:22:47} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:22:48} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:23:29} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_24,     SenderEmail='rafa@teste.com.br')) - begin 
+{2013/08/22 18:23:30} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_24,     SenderEmail='rafa@teste.com.br')) - end {1}2BE883C50404B04994286FBA12C45202 
+{2013/08/22 18:23:30} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_25,     SenderEmail='adriano@dcanm.com.br')) - begin 
+{2013/08/22 18:23:31} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_25,     SenderEmail='adriano@dcanm.com.br')) - end {1}2FF057247F7FB9CCC42A9FAE430D4DB1 
+{2013/08/22 18:23:31} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_26,     SenderEmail='adriano@s3.com.br')) - begin 
+{2013/08/22 18:23:32} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_26,     SenderEmail='adriano@s3.com.br')) - end {1}347013B743435BC554CABF849C44D966 
+{2013/08/22 18:24:39} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:24:40} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:24:50} [Info] PagSeguroTransactionSearchService.SearchByCode(99462E19-414F-4DEF-AEAE-6CCF583F79C1) - begin 
+{2013/08/22 18:24:51} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=99462E19-414F-4DEF-AEAE-6CCF583F79C1) - end Transaction(Code=99462E19-414F-4DEF-AEAE-6CCF583F79C1, SenderEmail=comprador@uol.com.br, Date=2013-08-22T16:04:04.000-03:00, Reference=fatura_id_1, status=1, itemsCount=1) 
+{2013/08/22 18:25:09} [Info] PagSeguroTransactionSearchService.SearchByCode(510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0) - begin 
+{2013/08/22 18:25:14} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0) - end Transaction(Code=510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:23:46.000-03:00, Reference=fatura_id_25, status=1, itemsCount=1) 
+{2013/08/22 18:25:32} [Info] PagSeguroTransactionSearchService.SearchByCode(510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0) - begin 
+{2013/08/22 18:25:33} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0) - end Transaction(Code=510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:23:46.000-03:00, Reference=fatura_id_25, status=1, itemsCount=1) 
+{2013/08/22 18:25:45} [Info] PagSeguroTransactionSearchService.SearchByCode(510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0) - begin 
+{2013/08/22 18:25:46} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0) - end Transaction(Code=510EEFC0-18B8-49EB-BEF4-ABF5FC0A92E0, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:23:46.000-03:00, Reference=fatura_id_25, status=1, itemsCount=1) 
+{2013/08/22 18:39:14} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_27,     SenderEmail='rafa@teste.com.br')) - begin 
+{2013/08/22 18:39:15} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_27,     SenderEmail='rafa@teste.com.br')) - end {1}96D0C9696060D00CC494BFB37A8F0E2B 
+{2013/08/22 18:39:15} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_28,     SenderEmail='adriano@dcanm.com.br')) - begin 
+{2013/08/22 18:39:16} [Error] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_28,     SenderEmail='adriano@dcanm.com.br')) - error [HTTP 400] - BAD_REQUEST [11164] - senderCPF invalid value: 21636554798 
+{2013/08/22 18:39:57} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_31,     SenderEmail='adriano@s3.com.br')) - begin 
+{2013/08/22 18:39:58} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_31,     SenderEmail='adriano@s3.com.br')) - end {1}3EBC8889D5D501B3346BBF8825BA4D3B 
+{2013/08/22 18:40:26} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_32,     SenderEmail='rafa@teste.com.br')) - begin 
+{2013/08/22 18:40:27} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_32,     SenderEmail='rafa@teste.com.br')) - end {1}B0679EB40E0E693004467FB6A83849E9 
+{2013/08/22 18:40:27} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_33,     SenderEmail='adriano@dcanm.com.br')) - begin 
+{2013/08/22 18:40:28} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_33,     SenderEmail='adriano@dcanm.com.br')) - end {1}B466B660C8C82DEAA48C6FA3DEFA0201 
+{2013/08/22 18:40:28} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_34,     SenderEmail='adriano@s3.com.br')) - begin 
+{2013/08/22 18:40:29} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_34,     SenderEmail='adriano@s3.com.br')) - end {1}B95A882A5F5F141004253FBCE9C4B590 
+{2013/08/22 18:43:06} [Info] PagSeguroTransactionSearchService.SearchByCode(98D775A4-8A9D-41CD-921D-54A4F46038FC) - begin 
+{2013/08/22 18:43:07} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=98D775A4-8A9D-41CD-921D-54A4F46038FC) - end Transaction(Code=98D775A4-8A9D-41CD-921D-54A4F46038FC, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:40:52.000-03:00, Reference=fatura_id_33, status=1, itemsCount=1) 
+{2013/08/22 18:43:52} [Info] PagSeguroTransactionSearchService.SearchByCode(98D775A4-8A9D-41CD-921D-54A4F46038FC) - begin 
+{2013/08/22 18:43:53} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=98D775A4-8A9D-41CD-921D-54A4F46038FC) - end Transaction(Code=98D775A4-8A9D-41CD-921D-54A4F46038FC, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:40:52.000-03:00, Reference=fatura_id_33, status=1, itemsCount=1) 
+{2013/08/22 18:44:43} [Info] PagSeguroTransactionSearchService.SearchByCode(98D775A4-8A9D-41CD-921D-54A4F46038FC) - begin 
+{2013/08/22 18:44:44} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=98D775A4-8A9D-41CD-921D-54A4F46038FC) - end Transaction(Code=98D775A4-8A9D-41CD-921D-54A4F46038FC, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:40:52.000-03:00, Reference=fatura_id_33, status=1, itemsCount=1) 
+{2013/08/22 18:45:40} [Info] PagSeguroTransactionSearchService.SearchByCode(98D775A4-8A9D-41CD-921D-54A4F46038FC) - begin 
+{2013/08/22 18:45:41} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=98D775A4-8A9D-41CD-921D-54A4F46038FC) - end Transaction(Code=98D775A4-8A9D-41CD-921D-54A4F46038FC, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:40:52.000-03:00, Reference=fatura_id_33, status=1, itemsCount=1) 
+{2013/08/22 18:47:29} [Info] PagSeguroTransactionSearchService.SearchByCode(98D775A4-8A9D-41CD-921D-54A4F46038FC) - begin 
+{2013/08/22 18:47:31} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=98D775A4-8A9D-41CD-921D-54A4F46038FC) - end Transaction(Code=98D775A4-8A9D-41CD-921D-54A4F46038FC, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:40:52.000-03:00, Reference=fatura_id_33, status=1, itemsCount=1) 
+{2013/08/22 18:58:07} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_35,     SenderEmail='rafa@teste.com.br')) - begin 
+{2013/08/22 18:58:09} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_35,     SenderEmail='rafa@teste.com.br')) - end {1}E2B92D630505312774FF5FB135BBC43A 
+{2013/08/22 18:58:09} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_36,     SenderEmail='adriano@dcanm.com.br')) - begin 
+{2013/08/22 18:58:10} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_36,     SenderEmail='adriano@dcanm.com.br')) - end {1}E6BEF1C36B6B26C224FFFF96F4C7CD81 
+{2013/08/22 18:58:10} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_37,     SenderEmail='adriano@s3.com.br')) - begin 
+{2013/08/22 18:58:13} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_37,     SenderEmail='adriano@s3.com.br')) - end {1}F26C9B6B74747D11140ABF838A3FF2D6 
+{2013/08/22 19:01:43} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=ED96B4-DFBC2BBC2B58-E114E1BFB776-976EE7) - begin 
+{2013/08/22 19:01:45} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=ED96B4-DFBC2BBC2B58-E114E1BFB776-976EE7) - end Transaction(Code=5AA579E7-6A8F-4012-9CA6-E987496383FD, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:58:51.000-03:00, Reference=fatura_id_36, status=3, itemsCount=1)) 
+{2013/08/22 19:01:51} [Info] PagSeguroTransactionSearchService.SearchByCode(5AA579E7-6A8F-4012-9CA6-E987496383FD) - begin 
+{2013/08/22 19:01:52} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=5AA579E7-6A8F-4012-9CA6-E987496383FD) - end Transaction(Code=5AA579E7-6A8F-4012-9CA6-E987496383FD, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T18:58:51.000-03:00, Reference=fatura_id_36, status=3, itemsCount=1) 
+{2013/08/22 19:10:18} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_39,     SenderEmail='adriano@dcanm.com.br')) - begin 
+{2013/08/22 19:10:20} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_39,     SenderEmail='adriano@dcanm.com.br')) - end {1}093959BA4343113884F31F8FABC8F435 
+{2013/08/22 19:12:37} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=E6A3A0-1B93409340A3-C224659F9273-1FEF51) - begin 
+{2013/08/22 19:12:39} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=E6A3A0-1B93409340A3-C224659F9273-1FEF51) - end Transaction(Code=E23D4AD7-EAC8-4A9A-A864-515A3E59630C, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T19:11:49.000-03:00, Reference=fatura_id_39, status=1, itemsCount=1)) 
+{2013/08/22 19:12:43} [Info] PagSeguroTransactionSearchService.SearchByCode(E23D4AD7-EAC8-4A9A-A864-515A3E59630C) - begin 
+{2013/08/22 19:12:44} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=E23D4AD7-EAC8-4A9A-A864-515A3E59630C) - end Transaction(Code=E23D4AD7-EAC8-4A9A-A864-515A3E59630C, SenderEmail=adriano@dcanm.com.br, Date=2013-08-22T19:11:49.000-03:00, Reference=fatura_id_39, status=1, itemsCount=1) 
+{2013/08/23 13:43:26} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_42,     SenderEmail='adriano@dcanm.com.br')) - begin 
+{2013/08/23 13:43:27} [Info] PagSeguroPaymentService.Register(PagSeguroPaymentRequest(Reference=fatura_id_42,     SenderEmail='adriano@dcanm.com.br')) - end {1}211DDBF85C5CD65554123FAE54286EBE 
+{2013/08/26 12:51:09} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=1736E8-54EC61EC6173-0004A9EF854C-95BE5D) - begin 
+{2013/08/26 12:51:11} [Info] PagSeguroNotificationService.CheckTransaction(notificationCode=1736E8-54EC61EC6173-0004A9EF854C-95BE5D) - end Transaction(Code=5139A714-FFF4-4E3E-B281-70D51C2A6DEF, SenderEmail=adriano@dcanm.com.br, Date=2013-08-26T12:50:19.000-03:00, Reference=fatura_id_42, status=1, itemsCount=1)) 
+{2013/08/26 12:51:17} [Info] PagSeguroTransactionSearchService.SearchByCode(5139A714-FFF4-4E3E-B281-70D51C2A6DEF) - begin 
+{2013/08/26 12:51:19} [Info] PagSeguroTransactionSearchService.SearchByCode(transactionCode=5139A714-FFF4-4E3E-B281-70D51C2A6DEF) - end Transaction(Code=5139A714-FFF4-4E3E-B281-70D51C2A6DEF, SenderEmail=adriano@dcanm.com.br, Date=2013-08-26T12:50:19.000-03:00, Reference=fatura_id_42, status=1, itemsCount=1) 
