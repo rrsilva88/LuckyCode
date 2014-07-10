@@ -62,7 +62,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     if(isset($matches[0])){
           define("BASE_URL","http://www.luckycode.com.br/");  
     }else{
-          define("BASE_URL","http://luckycode.com.br/);  
+          define("BASE_URL","http://luckycode.com.br/");  
     }
 
 }
