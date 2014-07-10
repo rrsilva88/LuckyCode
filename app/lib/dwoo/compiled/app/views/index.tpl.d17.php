@@ -5,6 +5,8 @@ if (function_exists('Dwoo_Plugin_include')===false)
 /* end template head */ ob_start(); /* template body */ ;
 echo Dwoo_Plugin_include($this, 'header.tpl', null, null, null, '_root', null);?>
 
+
+<div id="content">
 <?php if ((isset($this->scope["sections"]) ? $this->scope["sections"] : null)) {
 ?>
     <?php 
@@ -25,6 +27,7 @@ if ($this->isArray($_fh0_data) === true)
 <?php 
 }?>
 
+</div>
 <?php echo Dwoo_Plugin_include($this, 'footer.tpl', null, null, null, '_root', null);?>
 
 

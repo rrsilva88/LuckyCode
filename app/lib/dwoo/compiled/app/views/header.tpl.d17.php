@@ -64,8 +64,8 @@ if (function_exists('Dwoo_Plugin_include')===false)
     <link href="http://fonts.googleapis.com/css?family=Bitter|Roboto:400,300,700|Roboto+Slab:300,400,700|Pacifico" rel="stylesheet" type="text/css" />
     <script src="js/libs/jquery-1.10.2.min.js"></script>
     <script src="js/libs/retina-1.1.0.min.js"></script>
-    <!-- STYLES SWITCHER LESS FILE, REMOVE AT REAL PROJECT -->
-    <link rel="stylesheet/less" type="text/css" href="css/less/font_switcher.less" />
+    
+   
 </head>
 <body class="widgetized-footer template-home">
 <div class="primary-wrapper">
