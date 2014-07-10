@@ -38,7 +38,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     
 }else{ // AMBIENTE PRODUCAO
 
-/*
+
     #########
     #  DB
     ######### 
@@ -47,28 +47,24 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     # Usuario servidor
     $user = 'root';
     # Senha servidor
-    $pwd = 'xBaEH0';
+    $pwd = 'r1a2f3a4';
     # Database servidor
-    $db = 'nowmotos';
+    $db = 'luckycode';
 
     ###########
     #   SYS
     ##########
-    define("APP_KEY",'AIzaSyDjVSORHohUivAEh0fz07RR1hCGTagJOOs');
-    define("PATCH_MOTOBOY_IMAGES",'/var/www/html/pedido/fotos/motoboy/');
-    define("PATCH_MOTOBOY_FOTOS",'/var/www/html/pedido/fotos/');
-    define("PATCH_MOTOBOY_FOTOS_WEB",'http://www.vaimoto.com.br/pedido/fotos/');
-
+ 
     #################
     #   BASE URL
     ###################
     preg_match('/www/', $_SERVER['SERVER_NAME'], $matches);
     if(isset($matches[0])){
-          define("BASE_URL","http://www.vaimoto.com.br/");  
+          define("BASE_URL","http://www.luckycode.com.br/");  
     }else{
-          define("BASE_URL","http://vaimoto.com.br/");  
+          define("BASE_URL","http://luckycode.com.br/);  
     }
-*/
+
 }
 
 
