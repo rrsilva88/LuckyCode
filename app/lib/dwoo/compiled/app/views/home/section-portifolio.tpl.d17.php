@@ -34,7 +34,7 @@
                             <a href="javascript:;"><img src="img/banner_home_david.jpg" width="336" height="336" alt="" /></a>
                             <div class="overlay">
                                 <a href="javascript:;" class="icon-zoom" alt='ir para o david luiz' title='ir para o david luiz'></a>
-                                <a href="javascript:;" class="icon-document"  alt='Detalhes Projeto' title='Detalhes Projeto'></a>
+                                <a href="javascript:;" class="icon-document"  alt='Detalhes Projeto' title='Detalhes do projeto'></a>
                             </div>
                         </div>
                         
