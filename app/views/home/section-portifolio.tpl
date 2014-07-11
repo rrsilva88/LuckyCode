@@ -19,7 +19,7 @@
                     <p class="portfolio-categories-description">Veja com mais detalhes cada projeto e como ele foi desenvolvido</p>
                     
                     <p>
-                        <a href="javascript:;" class="button">Ver Mais</a>
+                        <a href="{$dwoo.session.sys.base_url}Portifolio"  class="button">Ver Mais</a>
                     </p>
                 
                 </div>

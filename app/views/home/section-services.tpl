@@ -118,7 +118,7 @@
                     </div>
                   
                     
-                    <p><a ="{$dwoo.session.sys.base_url}Portifolio" class="button">ir Portfólio</a></p>
+                    <p><a href="{$dwoo.session.sys.base_url}Servicos" class="button">ir Portfólio</a></p>
                     
                 </div>
                 
