@@ -23,7 +23,7 @@
                             <h3>Por que SEO e ADS?</h3>
                             
                             <ol class="alter">
-                                <li>Com um melhor posicionamente você terá maior visibilidade</li>
+                                <li>Com um melhor posicionamento você terá maior visibilidade</li>
                                 <li>Campanhas de Ads podem aumentar consideravelmente seu acesso/vendas</li>
                                 <li>Fazer o seu site ser o melhor do segmento</li>
                             </ol>
