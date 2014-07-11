@@ -16,6 +16,7 @@ class home extends Controller{
       $data['sections'][1] = $this->dwoo->get('app/views/home/section-take-tour.tpl'); 
       $data['sections'][2] = $this->dwoo->get('app/views/home/section-benefits.tpl'); 
       $data['sections'][3] = $this->dwoo->get('app/views/home/section-portifolio.tpl'); 
+      $data['sections'][4] = $this->dwoo->get('app/views/home/section-services.tpl'); 
      # $data['sections'][0] = $this->dwoo->get('app/views/home/section-slider.tpl',$data); 
      # $data['sections'][1] = $this->dwoo->get('app/views/home/section-products-menu.tpl',$data); 
       

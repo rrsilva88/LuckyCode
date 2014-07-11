@@ -35,7 +35,7 @@
                             <input type="email" name="" value="" placeholder="Email" />
                         </p>
                         <p>
-                            <textarea name="" placeholder="Message"></textarea>
+                            <textarea name="" placeholder="Mensagem"></textarea>
                         </p>
                         <p>
                             <span class="captcha">
