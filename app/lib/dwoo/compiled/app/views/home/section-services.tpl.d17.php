@@ -59,8 +59,8 @@
                             <h2 class="title">Aplicativos & Jogos</h2>
                             
                               <img data-appear-animation="fadeIn" src="img/apple.png" class="alignleft" width="225" height="225" alt="Seo" />
-                                <p><strong>IOS</strong><br/>Desenvolvimentos para Iphone,Ipad e Ipod</p>  
-                                <p><strong>Android</strong><br/>Desenvolvimentos para todas as versões</p>
+                                <p><strong>IOS</strong><br/>Desenvolvemos para Iphone,Ipad e Ipod</p>  
+                                <p><strong>Android</strong><br/>Desenvolvemos para todas as versões</p>
                                 <ol class="alter">
                                     <li>Aplicativos</li>
                                     <li>Jogos</li>
@@ -120,7 +120,7 @@
                     </div>
                   
                     
-                    <p><a ="<?php echo $_SESSION['sys']['base_url'];?>Portifolio" class="button">ir Portfólio</a></p>
+                    <p><a href="<?php echo $_SESSION['sys']['base_url'];?>Servicos" class="button">ir Portfólio</a></p>
                     
                 </div>
                 
