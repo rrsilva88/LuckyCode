@@ -29,7 +29,7 @@
     <label class="control-label">Título</label>
         <div class="controls">
           <input type="text" placeholder="Título" value='<?php echo $this->scope["noticia"]["titulo"];?>' name='titulo' class="span10">
-          <input type="hidden"  value='<?php echo $this->scope["noticia"]["id_artigo"];?>'name='id_artigo'  class="span2">
+          <input type="hidden"  value='<?php echo $this->scope["noticia"]["id_noticia"];?>'name='id_noticia'  class="span2">
           <input type="text" placeholder="Data" value='<?php echo $this->scope["noticia"]["data"];?>' class='date' name='data'  class="span2">
         </div>
   </div>    
@@ -73,22 +73,6 @@
   </div>
 
       
-  <div class="control-group">
-    <label class="control-label">Tipo</label>
-        <div class="controls">
-          <select name='tipo'>
-            <option value="Geral" <?php if ((isset($this->scope["noticia"]["tipo"]) ? $this->scope["noticia"]["tipo"]:null) == 'Geral') {
-?>SELECTED='SELECTED'<?php 
-}?>>Geral</option>
-            <option value="Nutrição" <?php if ((isset($this->scope["noticia"]["tipo"]) ? $this->scope["noticia"]["tipo"]:null) == 'Nutrição') {
-?>SELECTED='SELECTED'<?php 
-}?>>Nutrição</option>
-            <option value="Treino" <?php if ((isset($this->scope["noticia"]["tipo"]) ? $this->scope["noticia"]["tipo"]:null) == 'Treino') {
-?>SELECTED='SELECTED'<?php 
-}?>>Treino</option>
-          </select>
-        </div>
-  </div>
   
   
 <div class="control-group">
@@ -161,7 +145,7 @@ function UpdateNoticias(){
             $(".loading").hide();
             if(data.status == true){
                 alertify.log( 'SUCCESS!', 'success' );  
-                window.location.href = base_url+'Noticias/View/<?php echo $this->scope["noticia"]["id_artigo"];?>';
+                window.location.href = base_url+'Noticias/View/<?php echo $this->scope["noticia"]["id_noticia"];?>';
             }else{
                 alertify.log( 'ERROR! TRY AGAIN!', 'error' );  
             }

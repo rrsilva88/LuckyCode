@@ -1,79 +1,91 @@
-<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+<?php
+/* template head */
+/* end template head */ ob_start(); /* template body */ ?><script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="ckfinder/ckfinder.js"></script>
 
-<form id='frm_motoboy' class='frm_motoboy'>
+<form id='frm_motoboy' class='frm_motoboy'>   
 
 
-
-      <div class="control-group">
-    <label class="control-label">Visibilidade</label>
-        <div class="controls">
-          
-          <select name='status'>
-            <option value='1' {if $noticia.status == 1}SELECTED='SELECTED'{/if}>Visivel</option>  
-            <option value='0' {if $noticia.status == 0}SELECTED='SELECTED'{/if}>Oculto</option>  
-          </select>
-          
-        </div>
-  </div>
-
-                        
+            
 
 <div class="control-group">
     <label class="control-label">Título</label>
         <div class="controls">
-          <input type="text" placeholder="Título" value='{$noticia.titulo}' name='titulo' class="span10">
-          <input type="hidden"  value='{$noticia.id_noticia}'name='id_noticia'  class="span2">
-          <input type="text" placeholder="Data" value='{$noticia.data}' class='date' name='data'  class="span2">
+          <input type="text" placeholder="Título" value='' name='titulo' class="span10">
+          <input type="text" placeholder="Data"class='date' name='data'  class="span2">
         </div>
   </div>    
-  <div class="control-group">
-    <label class="control-label">Alias</label>
-        <div class="controls">
-          <input type="text" placeholder="Sub-título" value='{$noticia.alias}' class="span12" readonly="readonly">
-        </div>
-  </div>
   
   <div class="control-group">
     <label class="control-label">Sub-título</label>
         <div class="controls">
-          <input type="text" placeholder="Sub-título" value='{$noticia.subtitulo}' name='subtitulo' class="span12">
+          <input type="text" placeholder="Sub-título" value='' name='subtitulo' class="span12">
         </div>
   </div>
   
   <div class="control-group">
     <label class="control-label">Chamada</label>
         <div class="controls">
-         <textarea cols="10" rows="10"  style="min-height:150px !important;" placeholder="Chamada" value='' name='chamada' class="span12">{$noticia.chamada}</textarea>
+          <textarea cols="10" style="min-height:150px !important;" rows="10" placeholder="Chamada" value='' name='chamada' class="span12"></textarea>
         </div>
   </div>
   
-  
-  
+ 
   <div class="control-group">
     <label class="control-label">Foto Chamada</label>
         <div class="controls">
         <div class='image_preview'>
-          {if $noticia.foto_chamada != ''}
-            <img src="{$dwoo.session.sys.base}uploads/{$noticia.foto_chamada}" alt="{$noticia.titulo}" style='width:50px;float:left;'>
-          {/if}
+         
+         
         </div>
           <br />
           <input type="file" name='foto' onchange="readFile(this)"> 
         </div>
   </div>
-
-      
+  
+  
+                     
   
   
 <div class="control-group">
     <label class="control-label">Conteúdo</label>
         <div class="controls">
-            <textarea id="editor1" name="content_html" rows="100" cols="80">
-              {$noticia.content_html}
-            </textarea>
+            <textarea id="editor1" name="content_html" rows="100" cols="80"></textarea>
         </div>
   </div>
+  
+  
+  
+  
+  <div class="control-group">
+    <label class="control-label">View Link</label>
+        <div class="controls">
+          <input type="text" placeholder="View Link" value='' name='view' class="span12">
+        </div>
+  </div>
+  
+  
+  <div class="control-group">
+    <label class="control-label">Download Link</label>
+        <div class="controls">
+          <input type="text" placeholder="Download Link" value='' name='download' class="span12">
+        </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Fonte</label>
+        <div class="controls">
+          <input type="text" placeholder="Fonte" value='' name='fonte' class="span12">
+        </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Fonte Link</label>
+        <div class="controls">
+          <input type="text" placeholder="Download Link" value='' name='fonte_url' class="span12">
+        </div>
+  </div>
+  
   
   
 </form>
@@ -81,8 +93,7 @@
 
 
 <script type="text/javascript">
-
-    $(function() {
+  $(function() {
         $(".date").datepicker({
             dateFormat: 'dd/mm/yy',
             changeMonth: true,
@@ -107,7 +118,7 @@
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    var img = $('<img>').attr('src', e.target.result).attr('style','width: 60px ! important; ');
+                    var img = $('<img>').attr('src', e.target.result).attr('style','width: 60px ! important;');
                     $(input).parent().find('.image_preview').html(img);
                     //$()
                 }
@@ -120,22 +131,22 @@
         }
 }
 
-function UpdateNoticias(){
+
+
+function SaveTutoriais(){
     $(".loading").show();
       for (instance in CKEDITOR.instances) {
     CKEDITOR.instances[instance].updateElement();
 }
-    
      $(".frm_motoboy").ajaxForm({
-         
-        url: "Noticias/ajaxUpdate",
+        url: "Tutoriais/ajaxSave",
         type:'post',
         dataType:  'json', 
         success: function(data) {
             $(".loading").hide();
             if(data.status == true){
                 alertify.log( 'SUCCESS!', 'success' );  
-                window.location.href = base_url+'Noticias/View/{$noticia.id_noticia}';
+                window.location.href = base_url+'Tutoriais/View/'+data.id;
             }else{
                 alertify.log( 'ERROR! TRY AGAIN!', 'error' );  
             }
@@ -174,4 +185,6 @@ var editor = CKEDITOR.replace( 'editor1',
 
    
 
-</script>
+</script><?php  /* end template body */
+return $this->buffer . ob_get_clean();
+?>

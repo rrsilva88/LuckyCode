@@ -11,9 +11,12 @@ class homeModel extends Model{
                 senha = '".$dados['senha']."'
                 ";
         $dados = $DB->GetAll($sql);
+        
+       
         if(is_array($dados)){
             return $dados;
         }else{
+            var_dump($DB->ErrorMsg());
             return false;
         }
     }

@@ -1,19 +1,19 @@
 <?php
-include MODELS.'Noticias/NoticiasModel.php';
+include MODELS.'Tutoriais/TutoriaisModel.php';
 
-class Noticias extends Controller{
+class Tutoriais extends Controller{
     function index(){
-        $model = new NoticiasModel();
+        $model = new TutoriaisModel();
        
        $data['content'][1]['size'] = 12;
-       $data['content'][1]['name'] = 'Lista de Notícias';
+       $data['content'][1]['name'] = 'Lista de Tutoriais';
        
        $data['content'][1]['footer'][1]['class'] = 'btn btn-success';
        $data['content'][1]['footer'][1]['title'] = 'Criar Notícia';
-       $data['content'][1]['footer'][1]['href'] = "Noticias/Create";
+       $data['content'][1]['footer'][1]['href'] = "Tutoriais/Create";
        
        $dados['fields'] = array('Título','Alias','Data','Ações');
-       $dados['url_dados'] = BASE_URL."Noticias/ajaxListNoticias";
+       $dados['url_dados'] = BASE_URL."Tutoriais/ajaxListTutoriais";
        $dados['order_table']['field'] = 2;
        $dados['order_table']['tipo'] = 'asc';
        $data['content'][1]['html'] =  $this->dwoo->get('app/views/widget/dyna_table.tpl', $dados);
@@ -23,15 +23,15 @@ class Noticias extends Controller{
     
     
     
-    function ajaxListNoticias(){
+    function ajaxListTutoriais(){
           // FIX BUG CHROME
           #header('Access-Control-Allow-Origin: *');
-          $aColumns = array('titulo','alias','data', 'id_noticia');
+          $aColumns = array('titulo','alias','data', 'id_tutorial');
            /* Indexed column (used for fast and accurate table cardinality) */
-            $sIndexColumn = "id_noticia";
+            $sIndexColumn = "id_tutorial";
              
             /* DB table to use */
-            $sTable = "noticias";
+            $sTable = "tutoriais";
             
             
             function fatal_error ( $sErrorMessage = '' )
@@ -143,7 +143,7 @@ class Noticias extends Controller{
                 $sLimit
             ";
             
-            $model = new NoticiasModel(); 
+            $model = new TutoriaisModel(); 
           #  echo "<pre>";
           # echo $sQuery;
             $rResult = $model->Query($sQuery);
@@ -186,17 +186,17 @@ class Noticias extends Controller{
                 $row = array();
                 for ( $i=0 ; $i<count($aColumns) ; $i++ )
                 {
-                     if ( $aColumns[$i] == 'id_noticia' ){
+                     if ( $aColumns[$i] == 'id_tutorial' ){
                         $html ='
-                            <div class="btn-group" id="Noticias_'.$aRow[$aColumns[$i]].'">
+                            <div class="btn-group" id="Tutoriais_'.$aRow[$aColumns[$i]].'">
                             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
                             Ações
                               <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                              <li><a href="Noticias/View/'.$aRow[$aColumns[$i]].'"><i class="icon-zoom-in"></i>Visualizar</a></li>
+                              <li><a href="Tutoriais/View/'.$aRow[$aColumns[$i]].'"><i class="icon-zoom-in"></i>Visualizar</a></li>
                               
-                              <li><a  onclick="Delete(\'Noticias\','.$aRow[$aColumns[$i]].')"><i class="icon-trash"></i>Deletar</a></li>
+                              <li><a  onclick="Delete(\'Tutoriais\','.$aRow[$aColumns[$i]].')"><i class="icon-trash"></i>Deletar</a></li>
                               
                               
                               ';
@@ -235,11 +235,11 @@ class Noticias extends Controller{
     function View(){
          $dados = $_REQUEST;
          $params = $this->getParams();
-         $dados['id_noticia'] = $params[0]; 
-         $model = new NoticiasModel();
-         $uData = $model->Data($dados['id_noticia']);
+         $dados['id_tutorial'] = $params[0]; 
+         $model = new TutoriaisModel();
+         $uData = $model->Data($dados['id_tutorial']);
       
-         $dados['title'] = '#'.$uData['0']['id_noticia'].' / '.$uData['0']['titulo'];
+         $dados['title'] = '#'.$uData['0']['id_tutorial'].' / '.$uData['0']['titulo'];
           
           $dados['title_btns'][0]['name'] = "Back";
           $dados['title_btns'][0]['class'] = "icon-reply";
@@ -253,16 +253,16 @@ class Noticias extends Controller{
        
        $dados['content'][1]['footer'][1]['class'] = 'btn btn-success';
        $dados['content'][1]['footer'][1]['title'] = 'Salvar';
-       $dados['content'][1]['footer'][1]['onclick'] = "UpdateNoticias();";
+       $dados['content'][1]['footer'][1]['onclick'] = "UpdateTutoriais();";
        
        
        
        
-       $dados['noticia'] = $uData[0];
+       $dados['tutorial'] = $uData[0];
        
        
        
-       $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Noticias/view.tpl', $dados);
+       $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Tutoriais/view.tpl', $dados);
           
           
        
@@ -274,20 +274,20 @@ class Noticias extends Controller{
     
     function Create(){
         
-       $dados['title'] = 'Criar Notícias';
+       $dados['title'] = 'Criar Tutorial';
       
        $dados['title_btns'][0]['name'] = "Back";
        $dados['title_btns'][0]['class'] = "icon-reply";
        $dados['title_btns'][0]['action'] = "onclick='javascript:history.back(-1);'";
        $dados['content'][1]['size'] = 12;
-       $dados['content'][1]['name'] = 'Nova Notícia';
+       $dados['content'][1]['name'] = 'Novo tutorial';
        $dados['content'][1]['icon'] = 'icon-th-large';
        
        
        $dados['content'][1]['footer'][1]['class'] = 'btn btn-success';
        $dados['content'][1]['footer'][1]['title'] = 'Salvar';
-       $dados['content'][1]['footer'][1]['onclick'] = "SaveNoticias();";
-        $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Noticias/new.tpl', $dados);
+       $dados['content'][1]['footer'][1]['onclick'] = "SaveTutoriais();";
+        $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Tutoriais/new.tpl', $dados);
         $html = $this->dwoo->get('app/views/index.tpl', $dados);
        echo $html;  
       
@@ -323,7 +323,7 @@ class Noticias extends Controller{
         
        unset($dados['foto']);
        str_replace('www.','http://www.',$dados['content_html']);
-       $model = new NoticiasModel();  
+       $model = new TutoriaisModel();  
        $ret = $model->Update($dados);
         
      
@@ -377,7 +377,7 @@ class Noticias extends Controller{
        
        
       
-       $model = new NoticiasModel(); 
+       $model = new TutoriaisModel(); 
        $ret = $model->Save($dados);
        if($ret){
             $retorno['status'] = true;   
@@ -397,7 +397,7 @@ class Noticias extends Controller{
     
     function ajaxDelete(){
        $dados = $_REQUEST;
-       $model = new NoticiasModel(); 
+       $model = new TutoriaisModel(); 
        $ret = $model->Delete($dados);
        if($ret){
             $retorno['status'] = true;   

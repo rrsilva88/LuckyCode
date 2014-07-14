@@ -6,45 +6,41 @@
  
 $pattern = '/www/';
 // IF AMBIENTE DESENVOLVIMENTO
-if($_SERVER['SERVER_NAME'] == 'www.dcanm.mobi'){
+
+// IF AMBIENTE DESENVOLVIMENTO
+if($_SERVER['SERVER_NAME'] == 'localhost'){
         
     #########
     #  DB
     #########            
     # Endereço servidor
-    //$server = 'www.dcanm.mobi'; 
     $server = 'localhost'; 
     # Usuario servidor
-    $user = 'master';
+    $user = 'root';
     # Senha servidor
-    $pwd = 'Th3M0nk3y';
+    $pwd = '';
     # Database servidor
-    $db = 'probiotica';
+    $db = 'luckycode';
 
     ###########
     #   SYS
     ##########
     // DEV;
-    define("APP_KEY",'AIzaSyBHv9IeQMAp-OXgjImw5nE4aBbckOmI6TQ');
     #################
     #   BASE URL
     ###################
-    
-    define("PATCH_IMAGES",'/home/dcanmmob/public_html/probiotica_site/uploads/');
-    define("PATCH_IMAGES_PRODUTO",'/home/dcanmmob/public_html/probiotica_site/assets/images/produtos/');
-    
-    preg_match($pattern, $_SERVER['SERVER_NAME'], $matches);
+    preg_match('/www/', $_SERVER['SERVER_NAME'], $matches);
     if(isset($matches[0])){
-        define("BASE_URL","http://www.dcanm.mobi/probiotica_site/admin/");    
+        define("BASE_URL","http://localhost/git/LuckyCode/admin/");    
     }else{
-        define("BASE_URL","http://dcanm.mobi/probiotica_site/admin/");
+        define("BASE_URL","http://localhost/git/LuckyCode/admin/");
     }
-    define('BASE_SITE','http://dcanm.mobi/probiotica_site/');
-
+    define("PATCH_IMAGES","C:\Users\Rafa\Documents\GitHub\LuckyCode\\");
+    define("BASE_SITE","http://localhost/git/LuckyCode/");
     
 }else{ // AMBIENTE PRODUCAO
 
-/*
+
     #########
     #  DB
     ######### 
@@ -53,28 +49,26 @@ if($_SERVER['SERVER_NAME'] == 'www.dcanm.mobi'){
     # Usuario servidor
     $user = 'root';
     # Senha servidor
-    $pwd = 'xBaEH0';
+    $pwd = 'r1a2f3a4';
     # Database servidor
-    $db = 'nowmotos';
+    $db = 'luckycode';
 
     ###########
     #   SYS
     ##########
-    define("APP_KEY",'AIzaSyDjVSORHohUivAEh0fz07RR1hCGTagJOOs');
-    define("PATCH_MOTOBOY_IMAGES",'/var/www/html/pedido/fotos/motoboy/');
-    define("PATCH_MOTOBOY_FOTOS",'/var/www/html/pedido/fotos/');
-    define("PATCH_MOTOBOY_FOTOS_WEB",'http://www.vaimoto.com.br/pedido/fotos/');
-
+ 
     #################
     #   BASE URL
     ###################
-    preg_match($pattern, $_SERVER['SERVER_NAME'], $matches);
+    preg_match('/www/', $_SERVER['SERVER_NAME'], $matches);
     if(isset($matches[0])){
-          define("BASE_URL","http://www.vaimoto.com.br/");  
+          define("BASE_URL","http://www.luckycode.com.br/admin/");  
     }else{
-          define("BASE_URL","http://vaimoto.com.br/");  
+          define("BASE_URL","http://luckycode.com.br/admin/");  
     }
-*/
+    define("PATCH_IMAGES","/var/www/html/luckycode/");
+    define("BASE_SITE","http://luckycode.com.br/");
+
 }
 
 
@@ -97,13 +91,16 @@ define("LIB",BASE."lib/");
 define("HELPERS",SYS."helpers/");
 define("DEBUG",false);
 
+
 #EMAIL
-define("FROM_EMAIL",'contato@intercolegial.globo.com');
-define("NAME_EMAIL",'Intercolegial');
+define("FROM_EMAIL",'contato@luckycode.com.br');
+define("NAME_EMAIL",'LuckyCode');
+
 
 # SESSION SYS
 $_SESSION['sys']['base_url'] = BASE_URL;
 $_SESSION['sys']['base'] = BASE_SITE;
+
 
 
 

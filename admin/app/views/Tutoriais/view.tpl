@@ -10,8 +10,8 @@
         <div class="controls">
           
           <select name='status'>
-            <option value='1' {if $noticia.status == 1}SELECTED='SELECTED'{/if}>Visivel</option>  
-            <option value='0' {if $noticia.status == 0}SELECTED='SELECTED'{/if}>Oculto</option>  
+            <option value='1' {if $tutorial.status == 1}SELECTED='SELECTED'{/if}>Visivel</option>  
+            <option value='0' {if $tutorial.status == 0}SELECTED='SELECTED'{/if}>Oculto</option>  
           </select>
           
         </div>
@@ -22,29 +22,29 @@
 <div class="control-group">
     <label class="control-label">Título</label>
         <div class="controls">
-          <input type="text" placeholder="Título" value='{$noticia.titulo}' name='titulo' class="span10">
-          <input type="hidden"  value='{$noticia.id_noticia}'name='id_noticia'  class="span2">
-          <input type="text" placeholder="Data" value='{$noticia.data}' class='date' name='data'  class="span2">
+          <input type="text" placeholder="Título" value='{$tutorial.titulo}' name='titulo' class="span10">
+          <input type="hidden"  value='{$tutorial.id_tutorial}'name='id_tutorial'  class="span2">
+          <input type="text" placeholder="Data" value='{$tutorial.data}' class='date' name='data'  class="span2">
         </div>
   </div>    
   <div class="control-group">
     <label class="control-label">Alias</label>
         <div class="controls">
-          <input type="text" placeholder="Sub-título" value='{$noticia.alias}' class="span12" readonly="readonly">
+          <input type="text" placeholder="Sub-título" value='{$tutorial.alias}' class="span12" readonly="readonly">
         </div>
   </div>
   
   <div class="control-group">
     <label class="control-label">Sub-título</label>
         <div class="controls">
-          <input type="text" placeholder="Sub-título" value='{$noticia.subtitulo}' name='subtitulo' class="span12">
+          <input type="text" placeholder="Sub-título" value='{$tutorial.subtitulo}' name='subtitulo' class="span12">
         </div>
   </div>
   
   <div class="control-group">
     <label class="control-label">Chamada</label>
         <div class="controls">
-         <textarea cols="10" rows="10"  style="min-height:150px !important;" placeholder="Chamada" value='' name='chamada' class="span12">{$noticia.chamada}</textarea>
+         <textarea cols="10" rows="10"  style="min-height:150px !important;" placeholder="Chamada" value='' name='chamada' class="span12">{$tutorial.chamada}</textarea>
         </div>
   </div>
   
@@ -54,8 +54,8 @@
     <label class="control-label">Foto Chamada</label>
         <div class="controls">
         <div class='image_preview'>
-          {if $noticia.foto_chamada != ''}
-            <img src="{$dwoo.session.sys.base}uploads/{$noticia.foto_chamada}" alt="{$noticia.titulo}" style='width:50px;float:left;'>
+          {if $tutorial.foto_chamada != ''}
+            <img src="{$dwoo.session.sys.base}uploads/{$tutorial.foto_chamada}" alt="{$tutorial.titulo}" style='width:50px;float:left;'>
           {/if}
         </div>
           <br />
@@ -70,10 +70,42 @@
     <label class="control-label">Conteúdo</label>
         <div class="controls">
             <textarea id="editor1" name="content_html" rows="100" cols="80">
-              {$noticia.content_html}
+              {$tutorial.content_html}
             </textarea>
         </div>
   </div>
+  
+  <div class="control-group">
+    <label class="control-label">View Link</label>
+        <div class="controls">
+          <input type="text" placeholder="View Link" value='{$tutorial.view}'  name='view' class="span12">
+        </div>
+  </div>
+  
+  
+  <div class="control-group">
+    <label class="control-label">Download Link</label>
+        <div class="controls">
+          <input type="text" placeholder="Download Link" value='{$tutorial.download}'  name='download' class="span12">
+        </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Fonte</label>
+        <div class="controls">
+          <input type="text" placeholder="Fonte" value='{$tutorial.fonte}'  name='fonte' class="span12">
+        </div>
+  </div>
+  
+  <div class="control-group">
+    <label class="control-label">Fonte Link</label>
+        <div class="controls">
+          <input type="text" placeholder="Download Link" value='{$tutorial.fonte_url}'  name='fonte_url' class="span12">
+        </div>
+  </div>
+  
+  
+  
   
   
 </form>
@@ -120,7 +152,7 @@
         }
 }
 
-function UpdateNoticias(){
+function UpdateTutoriais(){
     $(".loading").show();
       for (instance in CKEDITOR.instances) {
     CKEDITOR.instances[instance].updateElement();
@@ -128,14 +160,14 @@ function UpdateNoticias(){
     
      $(".frm_motoboy").ajaxForm({
          
-        url: "Noticias/ajaxUpdate",
+        url: "Tutoriais/ajaxUpdate",
         type:'post',
         dataType:  'json', 
         success: function(data) {
             $(".loading").hide();
             if(data.status == true){
                 alertify.log( 'SUCCESS!', 'success' );  
-                window.location.href = base_url+'Noticias/View/{$noticia.id_noticia}';
+                window.location.href = base_url+'Tutoriais/View/{$tutorial.id_tutorial}';
             }else{
                 alertify.log( 'ERROR! TRY AGAIN!', 'error' );  
             }

@@ -42,17 +42,6 @@
   </div>
   
   
-  
-  <div class="control-group">
-    <label class="control-label">Tipo</label>
-        <div class="controls">
-          <select name='tipo'>
-            <option value="Geral">Geral</option>
-            <option value="Nutrição">Nutrição</option>
-            <option value="Treino">Treino</option>
-          </select>
-        </div>
-  </div>
                      
   
   

@@ -11,11 +11,7 @@
  * 
  */
 
-if (substr($_SERVER['HTTP_HOST'],0,3) != 'www') {
-    header('HTTP/1.1 301 Moved Permanently');
-    header('Location: http://www.'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-}
- 
+
 
 
 require_once('app/init.php');

@@ -1,19 +1,19 @@
 <?php
-include MODELS.'Noticias/NoticiasModel.php';
+include MODELS.'Portifolio/PortifolioModel.php';
 
-class Noticias extends Controller{
+class Portifolio extends Controller{
     function index(){
-        $model = new NoticiasModel();
+        $model = new PortifolioModel();
        
        $data['content'][1]['size'] = 12;
-       $data['content'][1]['name'] = 'Lista de Notícias';
+       $data['content'][1]['name'] = 'Lista Portifólio';
        
        $data['content'][1]['footer'][1]['class'] = 'btn btn-success';
-       $data['content'][1]['footer'][1]['title'] = 'Criar Notícia';
-       $data['content'][1]['footer'][1]['href'] = "Noticias/Create";
+       $data['content'][1]['footer'][1]['title'] = 'Criar Projeto';
+       $data['content'][1]['footer'][1]['href'] = "Portifolio/Create";
        
-       $dados['fields'] = array('Título','Alias','Data','Ações');
-       $dados['url_dados'] = BASE_URL."Noticias/ajaxListNoticias";
+       $dados['fields'] = array('Projeto','Alias','Data','Ações');
+       $dados['url_dados'] = BASE_URL."Portifolio/ajaxListPortifolio";
        $dados['order_table']['field'] = 2;
        $dados['order_table']['tipo'] = 'asc';
        $data['content'][1]['html'] =  $this->dwoo->get('app/views/widget/dyna_table.tpl', $dados);
@@ -23,15 +23,15 @@ class Noticias extends Controller{
     
     
     
-    function ajaxListNoticias(){
+    function ajaxListPortifolio(){
           // FIX BUG CHROME
           #header('Access-Control-Allow-Origin: *');
-          $aColumns = array('titulo','alias','data', 'id_noticia');
+          $aColumns = array('nome','alias','data', 'id_portifolio');
            /* Indexed column (used for fast and accurate table cardinality) */
-            $sIndexColumn = "id_noticia";
+            $sIndexColumn = "id_portifolio";
              
             /* DB table to use */
-            $sTable = "noticias";
+            $sTable = "portifolio";
             
             
             function fatal_error ( $sErrorMessage = '' )
@@ -143,7 +143,7 @@ class Noticias extends Controller{
                 $sLimit
             ";
             
-            $model = new NoticiasModel(); 
+            $model = new PortifolioModel(); 
           #  echo "<pre>";
           # echo $sQuery;
             $rResult = $model->Query($sQuery);
@@ -186,17 +186,17 @@ class Noticias extends Controller{
                 $row = array();
                 for ( $i=0 ; $i<count($aColumns) ; $i++ )
                 {
-                     if ( $aColumns[$i] == 'id_noticia' ){
+                     if ( $aColumns[$i] == 'id_portifolio' ){
                         $html ='
-                            <div class="btn-group" id="Noticias_'.$aRow[$aColumns[$i]].'">
+                            <div class="btn-group" id="Portifolio_'.$aRow[$aColumns[$i]].'">
                             <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
                             Ações
                               <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu pull-right">
-                              <li><a href="Noticias/View/'.$aRow[$aColumns[$i]].'"><i class="icon-zoom-in"></i>Visualizar</a></li>
+                              <li><a href="Portifolio/View/'.$aRow[$aColumns[$i]].'"><i class="icon-zoom-in"></i>Visualizar</a></li>
                               
-                              <li><a  onclick="Delete(\'Noticias\','.$aRow[$aColumns[$i]].')"><i class="icon-trash"></i>Deletar</a></li>
+                              <li><a  onclick="Delete(\'Portifolio\','.$aRow[$aColumns[$i]].')"><i class="icon-trash"></i>Deletar</a></li>
                               
                               
                               ';
@@ -235,11 +235,11 @@ class Noticias extends Controller{
     function View(){
          $dados = $_REQUEST;
          $params = $this->getParams();
-         $dados['id_noticia'] = $params[0]; 
-         $model = new NoticiasModel();
-         $uData = $model->Data($dados['id_noticia']);
+         $dados['id_portifolio'] = $params[0]; 
+         $model = new PortifolioModel();
+         $uData = $model->Data($dados['id_portifolio']);
       
-         $dados['title'] = '#'.$uData['0']['id_noticia'].' / '.$uData['0']['titulo'];
+         $dados['title'] = '#'.$uData['0']['id_portifolio'].' / '.$uData['0']['nome'];
           
           $dados['title_btns'][0]['name'] = "Back";
           $dados['title_btns'][0]['class'] = "icon-reply";
@@ -247,22 +247,22 @@ class Noticias extends Controller{
           
           
        $dados['content'][1]['size'] = 12;
-       $dados['content'][1]['name'] = 'Noticia';
+       $dados['content'][1]['name'] = 'Dados Projeto';
        $dados['content'][1]['icon'] = 'icon-th-large';
        
        
        $dados['content'][1]['footer'][1]['class'] = 'btn btn-success';
        $dados['content'][1]['footer'][1]['title'] = 'Salvar';
-       $dados['content'][1]['footer'][1]['onclick'] = "UpdateNoticias();";
+       $dados['content'][1]['footer'][1]['onclick'] = "UpdatePortifolio();";
        
        
        
        
-       $dados['noticia'] = $uData[0];
+       $dados['portifolio'] = $uData[0];
        
        
        
-       $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Noticias/view.tpl', $dados);
+       $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Portifolio/view.tpl', $dados);
           
           
        
@@ -274,20 +274,20 @@ class Noticias extends Controller{
     
     function Create(){
         
-       $dados['title'] = 'Criar Notícias';
+       $dados['title'] = 'Criar Projeto';
       
        $dados['title_btns'][0]['name'] = "Back";
        $dados['title_btns'][0]['class'] = "icon-reply";
        $dados['title_btns'][0]['action'] = "onclick='javascript:history.back(-1);'";
        $dados['content'][1]['size'] = 12;
-       $dados['content'][1]['name'] = 'Nova Notícia';
+       $dados['content'][1]['name'] = 'Novo Projeto';
        $dados['content'][1]['icon'] = 'icon-th-large';
        
        
        $dados['content'][1]['footer'][1]['class'] = 'btn btn-success';
        $dados['content'][1]['footer'][1]['title'] = 'Salvar';
-       $dados['content'][1]['footer'][1]['onclick'] = "SaveNoticias();";
-        $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Noticias/new.tpl', $dados);
+       $dados['content'][1]['footer'][1]['onclick'] = "SavePortifolio();";
+        $dados['content'][1]['html'] =  $this->dwoo->get('app/views/Portifolio/new.tpl', $dados);
         $html = $this->dwoo->get('app/views/index.tpl', $dados);
        echo $html;  
       
@@ -295,7 +295,7 @@ class Noticias extends Controller{
     
     function ajaxUpdate(){
        $dados = $_POST;
-       $dados['alias'] = $this->urlize($dados['titulo']);
+       $dados['alias'] = $this->urlize($dados['nome']);
        //$dados['data'] = date("Y/m/d");
        
        $data = explode('/',$dados['data']);
@@ -323,7 +323,7 @@ class Noticias extends Controller{
         
        unset($dados['foto']);
        str_replace('www.','http://www.',$dados['content_html']);
-       $model = new NoticiasModel();  
+       $model = new PortifolioModel();  
        $ret = $model->Update($dados);
         
      
@@ -342,7 +342,7 @@ class Noticias extends Controller{
     }
     function ajaxSave(){
        $dados = $_POST;
-       $dados['alias'] = $this->urlize($dados['titulo']);
+       $dados['alias'] = $this->urlize($dados['nome']);
        $data = explode('/',$dados['data']);
        $dataEUA = $data['2'].'-'.$data['1'].'-'.$data['0'];
        $dados['data'] = $dataEUA;
@@ -377,7 +377,7 @@ class Noticias extends Controller{
        
        
       
-       $model = new NoticiasModel(); 
+       $model = new PortifolioModel(); 
        $ret = $model->Save($dados);
        if($ret){
             $retorno['status'] = true;   
@@ -397,7 +397,7 @@ class Noticias extends Controller{
     
     function ajaxDelete(){
        $dados = $_REQUEST;
-       $model = new NoticiasModel(); 
+       $model = new PortifolioModel(); 
        $ret = $model->Delete($dados);
        if($ret){
             $retorno['status'] = true;   

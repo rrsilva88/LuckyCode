@@ -1,11 +1,11 @@
 <?php
 
-class NoticiasModel extends Model{
+class PortifolioModel extends Model{
     
     
     function GetAll($dados){
       global $DB;
-       $select = 'SELECT * FROM noticias
+       $select = 'SELECT * FROM portifolio
        ';  
        if($ret = $DB->GetAll($select)){
             return $ret;
@@ -14,12 +14,12 @@ class NoticiasModel extends Model{
        }   
     }
     
-    function Data($id_noticia){
+    function Data($id_portifolio){
       global $DB;
        $select = 'SELECT *,DATE_FORMAT(data,"%d/%m/%Y") as data
-        FROM  noticias
+        FROM  portifolio
         WHERE
-         id_noticia = "'.$id_noticia.'"
+         id_portifolio = "'.$id_portifolio.'"
        ';  
        if($ret = $DB->GetAll($select)){
             return $ret;
@@ -30,7 +30,7 @@ class NoticiasModel extends Model{
     
     function Get($dados){
        global $DB;
-       $select = 'SELECT * FROM noticias WHERE id_noticia ="'.$dados['id_noticia'].'";';  
+       $select = 'SELECT * FROM portifolio WHERE id_portifolio ="'.$dados['id_portifolio'].'";';  
        
        if($ret = $DB->GetAll($select)){
             return $ret;
@@ -42,7 +42,7 @@ class NoticiasModel extends Model{
     
     function Save($dados){
               global $DB;
-        if($insert = $this->autoInsert('noticias',$dados)){
+        if($insert = $this->autoInsert('portifolio',$dados)){
             if(is_numeric($insert)){
                 $ret['id'] = $insert;
             }else{
@@ -57,9 +57,9 @@ class NoticiasModel extends Model{
     }
     
     function Update($dados){
-        $id_noticia = $dados['id_noticia'];
-        unset($dados['id_noticia']);
-        $ret = $this->autoUpdate('noticias',$dados,'WHERE id_noticia="'.$id_noticia.'"');
+        $id_portifolio = $dados['id_portifolio'];
+        unset($dados['id_portifolio']);
+        $ret = $this->autoUpdate('portifolio',$dados,'WHERE id_portifolio="'.$id_portifolio.'"');
         return $ret;
     }
     
@@ -67,9 +67,9 @@ class NoticiasModel extends Model{
     function Delete($dados){
         global $DB;
        $select = 'DELETE FROM 
-                        noticias 
+                        portifolio 
                   WHERE 
-                    id_noticia ="'.$dados['id'].'"
+                    id_portifolio ="'.$dados['id'].'"
                   ;';  
        if($ret = $DB->Execute($select)){
             return $ret;
