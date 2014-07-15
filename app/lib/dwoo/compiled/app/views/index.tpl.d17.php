@@ -6,7 +6,7 @@ if (function_exists('Dwoo_Plugin_include')===false)
 echo Dwoo_Plugin_include($this, 'header.tpl', null, null, null, '_root', null);?>
 
 
-<div id="content">
+<div id="content" class="wrapper">
 <?php if ((isset($this->scope["sections"]) ? $this->scope["sections"] : null)) {
 ?>
     <?php 

@@ -1,6 +1,6 @@
 {include('header.tpl')}
 
-<div id="content">
+<div id="content" class="wrapper">
 {if $sections}
     {foreach $sections section}
         {$section}

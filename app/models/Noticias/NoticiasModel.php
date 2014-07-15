@@ -3,7 +3,7 @@
 class NoticiasModel extends Model{
     
     
-    function getNoticias($pagina){
+    function getNoticias(){
         global $DB;
         /*  COM PAGINAÇÃO
         $sql = "SELECT *,DATE_FORMAT( `data` , '%d/%m/%Y') as data_formatada FROM vm_noticias 
@@ -12,9 +12,9 @@ class NoticiasModel extends Model{
                 LIMIT ".$pagina." , 10
                 ";
         */        
-        $sql = "SELECT *,DATE_FORMAT( `data` , '%d/%m/%Y') as data_formatada FROM artigos 
+        $sql = "SELECT *,DATE_FORMAT( `data` , '%d/%m/%Y') as data_formatada FROM noticias 
                 WHERE status = 1
-                ORDER BY artigos.data DESC , artigos.id_artigo DESC
+                ORDER BY noticias.data DESC , noticias.id_artigo DESC
                 ";        
                 
                 
@@ -27,12 +27,30 @@ class NoticiasModel extends Model{
         
         
     }
+    function TotalPaginas(){
+       $sql = "SELECT count(*) as total FROM noticias 
+                WHERE status = 1
+                ";    
+                 global $DB;
+        $dados = $DB->GetAll($sql);
+        if(is_array($dados)){
+           # $dados[0]['total'] = 32;
+            $total = round($dados[0]['total'] / 10);
+            return $total;
+        }else{
+            return 0;
+        }          
+                 
+        
+        
+    }
                
-    function GetAll(){
+    function GetAll($pagina = 0){
        global $DB;
-        $sql = "SELECT * FROM artigos
+        $sql = "SELECT *,DATE_FORMAT( `data` , '%d/%m/%Y') as data_formatada FROM noticias
                 WHERE status = 1 
                 ORDER BY data DESC
+                LIMIT $pagina,10
                 ";
         $dados = $DB->GetAll($sql);
         if(is_array($dados)){
@@ -43,7 +61,7 @@ class NoticiasModel extends Model{
     }
     function DataAlias($dados){
        global $DB;
-        $sql = "SELECT *,DATE_FORMAT( `data` , '%d/%m/%Y') as data_formatada  FROM artigos 
+        $sql = "SELECT *,DATE_FORMAT( `data` , '%d/%m/%Y') as data_formatada  FROM noticias 
                 WHERE alias = '".$dados['alias']."'
                 AND status = 1 
                 ORDER BY data DESC

@@ -2,39 +2,51 @@
 include MODELS.'Noticias/NoticiasModel.php';
 class Noticias extends Controller{
     function index(){
+        
+        $model = new NoticiasModel();
+        $noticias = $model->GetAll(0);   
+        $total = $model->TotalPaginas();   
+        
+        
+        
+       
+       
+        $data['paginacao'] = $this->getPaginacao(2);
+        $data['noticias'] = $noticias;
 
-      $data = array();    
-      if(isset($_GET['p'])){
-          $pg = $_GET['p'];
-          $pagina = ($pg * 10) + $pg;
-      }else{
-          $pagina = 0;
-      }
-      $model = new NoticiasModel();
-      $data['noticias'] = $model->getNoticias($pagina);
-      foreach($data['noticias'] as $k =>$v){
-          $data['noticias'][$k]['chamada'] = nl2br($v['chamada']);
-      }
-      
-      
-      
-        $data['sub_title'] = 'Notícias';
-        $data['meta']['description'] = 'Notícias e Artigos';
-        $data['meta']['og_title'] = 'Notícias e Artigos';
-        $data['meta']['og_url'] = BASE_URL.'Noticias';
-        $data['meta']['og_description'] = 'Notícias e Artigos';
-      
-        $dView['id'] = 0;
-        $dView['type'] = 3;
-        $this->addView($dView);
-      
-      $data['main_id'] = 'section-artigos';
-      $data['sections'][0] = $this->dwoo->get('app/views/noticias/list.tpl',$data); 
-      echo $this->dwoo->get('app/views/index.tpl',$data);
-      
-     // $html = $this->dwoo->get('app/views/v2/midia.tpl',$data);
+        $data['body_class'] = ' blog template-one-column-grid';
+        $data['sections'][0] = $this->dwoo->get('app/views/noticias/section-news.tpl',$data); 
+        echo $this->dwoo->get('app/views/index.tpl',$data);
+
+ // $html = $this->dwoo->get('app/views/v2/midia.tpl',$data);
       #echo $html;  
     } 
+    
+    function getPaginacao($atual = 1){
+        $model = new NoticiasModel();
+        $total = $model->TotalPaginas();   
+        
+       # $atual = 2;
+       if($total > 1){
+            for ($i = $atual; $i <= $total; $i++) {
+                $pag[$i]['num'] = $i;
+                if($i == $atual){
+                    $pag[$i]['current'] = 'current';
+                }
+            }   
+            $paginacao['paginas'] = $pag;
+            $paginacao['atual'] = $atual;
+            $paginacao['total'] = $total;
+            return $paginacao;
+       } 
+    
+        
+    }
+    function pagina(){
+         $model = new NoticiasModel();
+         $noticias = $model->GetAll();
+         
+    }
     
     function rss(){
             header("Content-type: application/xml");
@@ -81,24 +93,27 @@ class Noticias extends Controller{
          
          
          
-         
-        $dView['id'] = $retorno[0]['id_artigo'];
-        $dView['type'] = 3;
-        $this->addView($dView);
+         $date = explode('-',$data['noticia']['data']);
+         $data['noticia']['ano'] = $this->getNomeMes($date[0]);      
+         $data['noticia']['dia'] = $date[2];      
+         $data['noticia']['mes'] = $this->getNomeMes($date[1]);      
+       
+    
          
          // META GOOGLE
          
-         $data['sub_title'] = $dados['noticia']['titulo'];
+         $data['sub_title'] = $data['noticia']['titulo'];
          $data['meta']['description'] = $data['noticia']['chamada'];
          $data['meta']['og_title'] =  $data['noticia']['titulo'];
          $data['meta']['og_url'] = BASE_URL.'Noticias/View/'. $data['noticia']['alias'];
          $data['meta']['og_image'] =  BASE_URL.'uploads/'. $data['noticia']['foto_chamada'];
          $data['meta']['og_description'] = $data['noticia']['chamada'];
          // MAIN ID // TEMPLATE VAR
-         $data['main_id'] = 'section-artigos';
-         $data['sections'][0] = $this->dwoo->get('app/views/noticias/view.tpl',$data); 
          
-         echo $this->dwoo->get('app/views/index.tpl',$data);
+         
+        $data['body_class'] = ' single';
+        $data['sections'][0] = $this->dwoo->get('app/views/noticias/section-view.tpl',$data); 
+        echo $this->dwoo->get('app/views/index.tpl',$data);
         
     
     }    

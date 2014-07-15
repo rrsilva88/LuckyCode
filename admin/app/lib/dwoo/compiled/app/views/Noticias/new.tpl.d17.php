@@ -113,7 +113,7 @@ function SaveNoticias(){
             $(".loading").hide();
             if(data.status == true){
                 alertify.log( 'SUCCESS!', 'success' );  
-               // window.location.href = base_url+'Noticias/View/'+data.id;
+                window.location.href = base_url+'Noticias/View/'+data.id;
             }else{
                 alertify.log( 'ERROR! TRY AGAIN!', 'error' );  
             }

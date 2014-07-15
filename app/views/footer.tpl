@@ -79,19 +79,8 @@
                 RECENT PHOTOS WIDGET
             -->
             <div class="unit one-quarter widget widget-recent-photos">
-                
-                <h4 class="widget-title">Últimos Tutoriais</h4>
-                
-                <a href="javascript:;"><img src="images/temp/footer_sample_1.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;"><img src="images/temp/footer_sample_2.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;"><img src="images/temp/footer_sample_3.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;"><img src="images/temp/footer_sample_4.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;"><img src="images/temp/footer_sample_5.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;"><img src="images/temp/footer_sample_6.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;"><img src="images/temp/footer_sample_7.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;"><img src="images/temp/footer_sample_8.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                <a href="javascript:;" class="last"><img src="images/temp/footer_sample_9.jpg" width="87" height="87" alt="" /><span class="mask"><i class="fa zoom fa-search-plus"></i></span></a>
-                
+                 <div class="fb-like-box" data-href="https://www.facebook.com/pages/Lucky-Code/552597521430145?ref=hl" data-width="250" data-height="350" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+             
             </div>
         
         </div>
@@ -149,6 +138,7 @@
     <script src="js/libs/less-1.5.1.min.js"></script>
     <script src="js/styleSwitcher.js"></script>
 
+    {literal}
     
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -159,6 +149,33 @@
     ga('create', 'UA-42345592-1', 'auto');
     ga('send', 'pageview');
 </script>
+
+
+<script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '542219092476553',
+          xfbml      : true,
+          version    : 'v2.0'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
     
+
+           $( document ).ready(function() {
+
+
+});
+
+
+    {/literal}
 </body>
 </html>

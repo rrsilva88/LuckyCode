@@ -42,15 +42,7 @@ if (function_exists('Dwoo_Plugin_include')===false)
     <script src="js/libs/respond.min.js"></script>
     <![endif]-->
     <link rel="stylesheet" title="blue" href="css/skin-blue.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="brown" href="css/skin-brown.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="dark-green" href="css/skin-dark-green.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="gray" href="css/skin-gray.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="light-green" href="css/skin-light-green.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="orange" href="css/skin-orange.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="pink" href="css/skin-pink.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="purple" href="css/skin-purple.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="red" href="css/skin-red.css" type="text/css" media="all" />
-    <link rel="alternate stylesheet" title="sky-blue" href="css/skin-sky-blue.css" type="text/css" media="all" />
+   
     
     <link rel="stylesheet" id="font-awesome-css" href="css/libs/font-awesome/css/font-awesome.min.css" type="text/css" media="all" />
     <link rel="stylesheet" id="magnific-popup-css" href="css/libs/magnific-popup.css" type="text/css" media="all" />
@@ -67,7 +59,14 @@ if (function_exists('Dwoo_Plugin_include')===false)
     
    
 </head>
-<body class="widgetized-footer template-home">
+<body class="widgetized-footer <?php if ((isset($this->scope["body_class"]) ? $this->scope["body_class"] : null)) {
+
+echo $this->scope["body_class"];
+
+}
+else {
+?>template-home<?php 
+}?>">
 <div class="primary-wrapper">
     <!-- 
     
