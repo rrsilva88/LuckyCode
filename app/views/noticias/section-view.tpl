@@ -30,7 +30,9 @@
                         
                         <div class="post-slider">
                             <div class="post">
-                                <img src="{$dwoo.session.sys.base_url}uploads/{$noticia.foto_chamada}" width="849" alt="" />
+                                <div class='img_preview'>
+                                    <img src="{$dwoo.session.sys.base_url}uploads/{$noticia.foto_chamada}" width="849" alt="" />
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>

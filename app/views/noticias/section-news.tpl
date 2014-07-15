@@ -11,7 +11,7 @@
                 {foreach $noticias noticia}
                       <article class="post with-thumbnail" data-appear-animation="fadeIn">
                         <div class="thumbnail">
-                            <a href="{$dwoo.session.sys.base_url}Noticias/View/{$noticia.alias}"><img src="{$dwoo.session.sys.base_url}uploads/{$noticia.foto_chamada}" alt="" width="364" height="274" /></a>
+                            <a href="{$dwoo.session.sys.base_url}Noticias/View/{$noticia.alias}"><img src="{$dwoo.session.sys.base_url}uploads/{$noticia.foto_chamada}" alt="" width="364" height="130" /></a>
                             <a href="{$dwoo.session.sys.base_url}Noticias/View/{$noticia.alias}" class="thumb-hover"><span class="details">Ver mais <i class="menu-angle"></i></span></a>
                             <div class="clear"></div>
                         </div>
