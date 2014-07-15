@@ -49,6 +49,7 @@ if (function_exists('Dwoo_Plugin_include')===false)
     <link rel="stylesheet" id="animate-css" href="css/libs/animate.min.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/libs/liquid-slider.css" type="text/css" media="all" />
     <link rel="stylesheet" href="css/libs/owl.carousel.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="all" />
     <!--[if lt IE 9]>
         <link rel="stylesheet" href="css/ie.css">
         <script src="js/libs/html5.js"></script>

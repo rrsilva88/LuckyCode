@@ -32,7 +32,9 @@
                         
                         <div class="post-slider">
                             <div class="post">
-                                <img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["noticia"]["foto_chamada"];?>" width="849" alt="" />
+                                <div class='img_preview'>
+                                    <img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["noticia"]["foto_chamada"];?>" width="849" alt="" />
+                                </div>
                             </div>
                             <div class="clear"></div>
                         </div>

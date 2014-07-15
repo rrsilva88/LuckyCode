@@ -20,7 +20,7 @@ if ($this->isArray($_fh0_data) === true)
 ?>
                       <article class="post with-thumbnail" data-appear-animation="fadeIn">
                         <div class="thumbnail">
-                            <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/View/<?php echo $this->scope["noticia"]["alias"];?>"><img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["noticia"]["foto_chamada"];?>" alt="" width="364" height="274" /></a>
+                            <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/View/<?php echo $this->scope["noticia"]["alias"];?>"><img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["noticia"]["foto_chamada"];?>" alt="" width="364" height="130" /></a>
                             <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/View/<?php echo $this->scope["noticia"]["alias"];?>" class="thumb-hover"><span class="details">Ver mais <i class="menu-angle"></i></span></a>
                             <div class="clear"></div>
                         </div>

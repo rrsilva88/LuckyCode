@@ -56,7 +56,7 @@ class Noticias extends Controller{
             // Cria o elemento <channel> dentro de <rss>
             
             $canal = $rss->addChild('channel');
-            $canal->addChild('title', 'Probiótica RSS');
+            $canal->addChild('title', 'LuckyCode RSS');
             $canal->addChild('link', BASE_URL);
             $canal->addChild('description',NAME_EMAIL);
             
