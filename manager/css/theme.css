@@ -457,7 +457,7 @@ table.table thead .sorting_desc_disabled { background: url('../img/sort_desc_dis
 /*  Navbar  */
 .navbar-fixed-top .navbar-inner{
   height: 45px;
-  background: #004789;  
+  background: #252525;  
   border: none;  
 }
 .navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner{

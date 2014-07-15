@@ -8,7 +8,7 @@
                 <div class="widget container-narrow">
                     <div class="widget-header">
                         <i class="icon-user"></i>
-                        <h5>Probiótica Admin</h5>
+                        <h5>LuckyCode CMS</h5>
                     </div>  
                     <div class="widget-body clearfix" style="padding:25px;">
                           <form id='FrmLoginAdmin'>

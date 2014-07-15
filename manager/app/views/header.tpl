@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Probiótica - Admin</title>
+    <title>LuckyCode - CMS</title>
     <base href='{$dwoo.session.sys.base_url}'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Bluth Company">
@@ -31,7 +31,6 @@
       <script>
         /* VARIAVEIS GLOBAIS */
         var base_url = "{$dwoo.session.sys.base_url}"; /* BASE_URL PARA REQUISIÇÕES AJAX*/
-        var id_user  = "{$dwoo.session.login.id_motoboy}"; /* ID_MOTOBOY LOGADO */
       </script>  
   </head>
   <body>

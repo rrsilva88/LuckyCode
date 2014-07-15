@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Probiótica - Admin</title>
+    <title>LuckyCode - CMS</title>
     <base href='<?php echo $_SESSION['sys']['base_url'];?>'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Bluth Company">
@@ -33,7 +33,6 @@
       <script>
         /* VARIAVEIS GLOBAIS */
         var base_url = "<?php echo $_SESSION['sys']['base_url'];?>"; /* BASE_URL PARA REQUISIÇÕES AJAX*/
-        var id_user  = "<?php echo $_SESSION['login']['id_motoboy'];?>"; /* ID_MOTOBOY LOGADO */
       </script>  
   </head>
   <body>
