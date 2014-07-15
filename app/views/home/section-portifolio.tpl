@@ -85,7 +85,7 @@
                         </div>
                         
                         <div class="item web-design wordpress-themes illustrations">
-                            <a href="javascript:;"><img src="images/temp/home_small_6.jpg" width="165" height="165" alt="" /></a>
+                            <a href="javascript:;"><img src="img/banner_home_p2s.jpg" width="165" height="165" alt="" /></a>
                             <div class="overlay">
                                 <a href="javascript:;" class="icon-zoom"></a>
                                 <a href="javascript:;" class="icon-document"></a>
@@ -93,7 +93,7 @@
                         </div>
                         
                         <div class="item web-design illustrations">
-                            <a href="javascript:;"><img src="images/temp/home_small_7.jpg" width="165" height="165" alt="" /></a>
+                            <a href="javascript:;"><img src="img/banner_home_probiotica.jpg" width="165" height="165" alt="" /></a>
                             <div class="overlay">
                                 <a href="javascript:;" class="icon-zoom"></a>
                                 <a href="javascript:;" class="icon-document"></a> 
