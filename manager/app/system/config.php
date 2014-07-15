@@ -68,7 +68,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     }else{
           define("BASE_URL","http://luckycode.com.br/manager/");  
     }
-    define("PATCH_IMAGES","/var/www/html/luckycode/");
+    define("PATCH_IMAGES","/var/www/html/");
     define("BASE_SITE","http://luckycode.com.br/");
     
 
