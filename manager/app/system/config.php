@@ -31,9 +31,9 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     ###################
     preg_match('/www/', $_SERVER['SERVER_NAME'], $matches);
     if(isset($matches[0])){
-        define("BASE_URL","http://localhost/git/LuckyCode/admin/");    
+        define("BASE_URL","http://localhost/git/LuckyCode/manager/");    
     }else{
-        define("BASE_URL","http://localhost/git/LuckyCode/admin/");
+        define("BASE_URL","http://localhost/git/LuckyCode/manager/");
     }
     define("PATCH_IMAGES","C:\Users\Rafa\Documents\GitHub\LuckyCode\\");
     define("BASE_SITE","http://localhost/git/LuckyCode/");
@@ -62,9 +62,9 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     ###################
     preg_match('/www/', $_SERVER['SERVER_NAME'], $matches);
     if(isset($matches[0])){
-          define("BASE_URL","http://www.luckycode.com.br/admin/");  
+          define("BASE_URL","http://www.luckycode.com.br/manager/");  
     }else{
-          define("BASE_URL","http://luckycode.com.br/admin/");  
+          define("BASE_URL","http://luckycode.com.br/manager/");  
     }
     define("PATCH_IMAGES","/var/www/html/luckycode/");
     define("BASE_SITE","http://luckycode.com.br/");
