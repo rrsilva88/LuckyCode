@@ -170,10 +170,7 @@
     </script>
     
 
-           $( document ).ready(function() {
-
-
-});
+       
 
 
     {/literal}
