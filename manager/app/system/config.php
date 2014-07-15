@@ -1,6 +1,8 @@
 <?php
 /***************************** 
- *  ARQUIVO DE CONFIGURAÇÃO  *
+ *  ARQUIVO DE CONFIGURAÇÃO 
+ * MANAGER
+ *  *
  *****************************/
  
  
@@ -68,6 +70,7 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     }
     define("PATCH_IMAGES","/var/www/html/luckycode/");
     define("BASE_SITE","http://luckycode.com.br/");
+    
 
 }
 
