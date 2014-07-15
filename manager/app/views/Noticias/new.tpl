@@ -104,7 +104,7 @@ function SaveNoticias(){
     CKEDITOR.instances[instance].updateElement();
 }
      $(".frm_motoboy").ajaxForm({
-        url: "Noticias/ajaxSave?debug=1",
+        url: "Noticias/ajaxSave",
         type:'post',
         dataType:  'json', 
         success: function(data) {

@@ -1,2 +1,2 @@
-.img_preview{width:100% !important;}
-.post-text{width:100% !important;}
+.img_preview > img {width: 100%;}
+.post-text > img{width:100% !important;}
