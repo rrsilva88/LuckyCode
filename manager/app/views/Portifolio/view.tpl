@@ -68,7 +68,19 @@
             </textarea>
         </div>
   </div>
-  
+    
+  <div class="control-group">
+    <label class="control-label">Tags</label>
+        <div class="controls">
+          <input type="text" placeholder="Sub-título" value='{$portifolio.tags}' class="span12">
+        </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">Tipos</label>
+        <div class="controls">
+          <input type="text" placeholder="Sub-título" value='{$portifolio.tipos}' class="span12">
+        </div>
+  </div>
   
 </form>
 

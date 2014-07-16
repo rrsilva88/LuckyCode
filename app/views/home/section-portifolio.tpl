@@ -39,7 +39,7 @@
                             <a href="{$dwoo.session.sys.base_url}Portfolio/View/{$portifolio.alias}"><img src="{$dwoo.session.sys.base_url}uploads/{$portifolio.foto_chamada}" {$dimensao}  alt="" /></a>
                             <div class="overlay">
                                 <a href="{$dwoo.session.sys.base_url}Portfolio/View/{$portifolio.alias}" class="icon-document"  alt='Detalhes Projeto' title='Detalhes'></a>
-                                <a href="{$portifolio.link}" target="_blank" class="icon-zoom" alt='Visitar' title='ir para o david luiz'></a>
+                                <a href="{$portifolio.link}" target="_blank" class="icon-zoom" alt='Visitar' title='Visitar'></a>
                             </div>
                         </div>
                         {$c = $c+1}
