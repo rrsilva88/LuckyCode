@@ -116,16 +116,15 @@ class Portfolio extends Controller{
     
          
          // META GOOGLE
-         
          $data['sub_title'] = $data['Portfolio']['nome'];
          $data['meta']['description'] = $data['Portfolio']['nome'];
          $data['meta']['og_title'] =  $data['Portfolio']['nome'];
          $data['meta']['og_url'] = BASE_URL.'Portfolio/View/'. $data['Portfolio']['alias'];
          $data['meta']['og_image'] =  BASE_URL.'uploads/'. $data['Portfolio']['foto_chamada'];
          $data['meta']['og_description'] = $data['Portfolio']['nome'];
-         // MAIN ID // TEMPLATE VAR
          
          
+         // BODY CLASS
         $data['body_class'] = ' single';
         $data['sections'][0] = $this->dwoo->get('app/views/Portfolio/section-view.tpl',$data); 
         echo $this->dwoo->get('app/views/index.tpl',$data);

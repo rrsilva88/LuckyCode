@@ -11,6 +11,7 @@
     {if $meta}
         <meta name="description" content="{$meta.description}" />
         <meta property="og:title" content="{$meta.og_title}" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="{$meta.og_url}" />
         <meta property="og:image" content="{$meta.og_image}" />
         <meta property="og:description" content="{$meta.og_description}" />
