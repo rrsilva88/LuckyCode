@@ -1108,5 +1108,34 @@ jQuery.noConflict()( function($){
 	}
 
 	Core.initialize();
+    
+    
+                $(".filter").click(function(){
+                  var classe = $(this).attr('id');
+                  
+                  switch(classe){
+                      case 'todos':
+                        jQuery('.portfolio-items .item').fadeIn();
+                      break;
+                      case 'sites':
+                        jQuery('.portfolio-items .item').fadeOut();
+                        jQuery('.portfolio-items .item.site').fadeIn();
+                        jQuery('.portfolio-items .item.sites').fadeIn();
+                      break;
+                      case 'lojas':
+                        jQuery('.portfolio-items .item').fadeOut();
+                        jQuery('.portfolio-items .item .loja').fadeIn();
+                        jQuery('.portfolio-items .item .lojas').fadeIn();
+                      break;    
+                      case 'aplicativos':
+                        jQuery('.portfolio-items .item').fadeOut();
+                        jQuery('.portfolio-items .item .aplicativos').fadeIn();
+                        jQuery('.portfolio-items .item .aplicativo').fadeIn();
+                        jQuery('.portfolio-items .item .app').fadeIn();
+                      break;
+                      
+                  }
+                });
+    
 
 });

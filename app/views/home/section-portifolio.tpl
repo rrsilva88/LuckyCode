@@ -28,77 +28,24 @@
                 
                     <div id="home-portfolio" class="portfolio-items">
                     
-                        <div class="item w2 wordpress-themes illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_david.jpg" width="336" height="336" alt="" /></a>
+                   {$c = 1}
+                    {foreach $portifolios portifolio}
+                        {if $c == 1 || $c == 6}
+                            {$dimensao = 'width="336" height="336"'}
+                        {else}
+                            {$dimensao = 'width="165" height="165"'}
+                        {/if}
+                        <div class="item w2 wordpress-themes">
+                            <a href="{$dwoo.session.sys.base_url}Portfolio/View/{$portifolio.alias}"><img src="{$dwoo.session.sys.base_url}uploads/{$portifolio.foto_chamada}" {$dimensao}  alt="" /></a>
                             <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom" alt='ir para o david luiz' title='ir para o david luiz'></a>
-                                <a href="javascript:;" class="icon-document"  alt='Detalhes Projeto' title='Detalhes do projeto'></a>
+                                <a href="{$dwoo.session.sys.base_url}Portfolio/View/{$portifolio.alias}" class="icon-document"  alt='Detalhes Projeto' title='Detalhes'></a>
+                                <a href="{$portifolio.link}" target="_blank" class="icon-zoom" alt='Visitar' title='ir para o david luiz'></a>
                             </div>
                         </div>
+                        {$c = $c+1}
+                    {/foreach}
                         
-                        <div class="item photography illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_probiotica.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
                         
-                        <div class="item wordpress-themes photography">
-                            <a href="javascript:;"><img src="img/banner_home_printpic.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design photography illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_brwod.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design photography">
-                            <a href="javascript:;"><img src="img/banner_home_p2s.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-
-                        <div class="item w2 photography wordpress-themes illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_vaimoto.jpg" width="336" height="336" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design wordpress-themes">
-                            <a href="javascript:;"><img src="img/banner_home_valendo.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design wordpress-themes illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_p2s.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_probiotica.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a> 
-                            </div>
-                        </div>
                     
                     </div>
                 
