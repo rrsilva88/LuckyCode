@@ -1,21 +1,18 @@
 <?php              
-include MODELS.'Noticias/NoticiasModel.php';
-class Noticias extends Controller{
+include MODELS.'Tutoriais/TutoriaisModel.php';
+class Tutoriais extends Controller{
     function index(){
         
-        $model = new NoticiasModel();
-        $noticias = $model->GetAll(0);   
+        $model = new TutoriaisModel();
+        $Tutoriais = $model->GetAll(0);   
        // $total = $model->TotalPaginas();   
-        
-        
-        
-       
+             
        
         $data['paginacao'] = $this->getPaginacao();
-        $data['noticias'] = $noticias;
+        $data['tutoriais'] = $Tutoriais;
 
         $data['body_class'] = ' blog template-one-column-grid';
-        $data['sections'][0] = $this->dwoo->get('app/views/noticias/section-news.tpl',$data); 
+        $data['sections'][0] = $this->dwoo->get('app/views/Tutoriais/section-news.tpl',$data); 
         echo $this->dwoo->get('app/views/index.tpl',$data);
 
  // $html = $this->dwoo->get('app/views/v2/midia.tpl',$data);
@@ -23,7 +20,7 @@ class Noticias extends Controller{
     } 
     
     function getPaginacao($atual = 0){
-        $model = new NoticiasModel();
+        $model = new TutoriaisModel();
         $total = $model->TotalPaginas();   
         
        # $atual = 2;
@@ -44,10 +41,10 @@ class Noticias extends Controller{
         
     }
     function pagina(){
-         $model = new NoticiasModel();
+         $model = new TutoriaisModel();
           $params = $this->getParams();
           
-        $noticias = $model->GetAll($params[0]);   
+        $Tutoriais = $model->GetAll($params[0]);   
        // $total = $model->TotalPaginas();   
         
         
@@ -55,10 +52,10 @@ class Noticias extends Controller{
        
        
         $data['paginacao'] = $this->getPaginacao($params[0]);
-        $data['noticias'] = $noticias;
+        $data['Tutoriais'] = $Tutoriais;
 
         $data['body_class'] = ' blog template-one-column-grid';
-        $data['sections'][0] = $this->dwoo->get('app/views/noticias/section-news.tpl',$data); 
+        $data['sections'][0] = $this->dwoo->get('app/views/Tutoriais/section-news.tpl',$data); 
         echo $this->dwoo->get('app/views/index.tpl',$data);
 
  // $html = $this->dwoo->get('app/views/v2/midia.tpl',$data);
@@ -78,17 +75,17 @@ class Noticias extends Controller{
             $canal->addChild('link', BASE_URL);
             $canal->addChild('description',NAME_EMAIL);
             
-            $model = new NoticiasModel();
-            $noticias = $model->GetAll();
+            $model = new TutoriaisModel();
+            $Tutoriais = $model->GetAll();
             
-           # print_r($noticias);
+           # print_r($Tutoriais);
             
-            foreach($noticias as $k=>$v){
+            foreach($Tutoriais as $k=>$v){
             
                 $item = $canal->addChild('item');
                 // Adiciona sub-elementos ao elemento <item>
                 $item->addChild('title',$v['titulo']);
-                $item->addChild('link', BASE_URL."Noticias/view/".$v['alias']);
+                $item->addChild('link', BASE_URL."Tutoriais/view/".$v['alias']);
                 $item->addChild('description', $v['chamada']);
                 $item->addChild('pubDate', date('r',strtotime($v['data'])));
                 // Cria outro elemento <item> dentro de <channel>
@@ -104,33 +101,33 @@ class Noticias extends Controller{
          $dados = $_REQUEST;
          $params = $this->getParams();
          $dados['alias'] = $params[0]; 
-         $model = new NoticiasModel();
+         $model = new TutoriaisModel();
          $retorno = $model->DataAlias($dados);
          $retorno[0]['chamada'] = nl2br($retorno[0]['chamada']);
-         $data['noticia'] = $retorno[0];
+         $data['tutorial'] = $retorno[0];
          
          
          
-         $date = explode('-',$data['noticia']['data']);
-         $data['noticia']['ano'] = $this->getNomeMes($date[0]);      
-         $data['noticia']['dia'] = $date[2];      
-         $data['noticia']['mes'] = $this->getNomeMes($date[1]);      
+         $date = explode('-',$data['tutorial']['data']);
+         $data['tutorial']['ano'] = $this->getNomeMes($date[0]);      
+         $data['tutorial']['dia'] = $date[2];      
+         $data['tutorial']['mes'] = $this->getNomeMes($date[1]);      
        
     
          
          // META GOOGLE
          
-         $data['sub_title'] = $data['noticia']['titulo'];
-         $data['meta']['description'] = $data['noticia']['chamada'];
-         $data['meta']['og_title'] =  $data['noticia']['titulo'];
-         $data['meta']['og_url'] = BASE_URL.'Noticias/View/'. $data['noticia']['alias'];
-         $data['meta']['og_image'] =  BASE_URL.'uploads/'. $data['noticia']['foto_chamada'];
-         $data['meta']['og_description'] = $data['noticia']['chamada'];
+         $data['sub_title'] = $data['tutorial']['titulo'];
+         $data['meta']['description'] = $data['tutorial']['chamada'];
+         $data['meta']['og_title'] =  $data['tutorial']['titulo'];
+         $data['meta']['og_url'] = BASE_URL.'Tutoriais/View/'. $data['tutorial']['alias'];
+         $data['meta']['og_image'] =  BASE_URL.'uploads/'. $data['tutorial']['foto_chamada'];
+         $data['meta']['og_description'] = $data['tutorial']['chamada'];
          // MAIN ID // TEMPLATE VAR
          
          
         $data['body_class'] = ' single';
-        $data['sections'][0] = $this->dwoo->get('app/views/noticias/section-view.tpl',$data); 
+        $data['sections'][0] = $this->dwoo->get('app/views/Tutoriais/section-view.tpl',$data); 
         echo $this->dwoo->get('app/views/index.tpl',$data);
         
     

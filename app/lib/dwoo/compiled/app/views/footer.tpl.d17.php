@@ -15,7 +15,7 @@
             <div class="unit one-quarter widget widget-about">
                 <a href="javascript:;" class="footer-logo ib"><img src="images/logo_white.png" width="300" height="51" alt="" /></a>
                 
-                <p> Existem muitas variações de passagens de Lorem Ipsum disponíveis, mas a maioria<br>Lorem Ipsum disponíveis, mas a maioria sofreu alteração.  </p>
+                <p>Sorte é o que acontece quando a preparação encontra a oportunidade <br /><br /><small>Elmer Letterman</small></p>
                 
             </div>
             
@@ -53,27 +53,10 @@
             -->
             <div class="unit one-quarter widget widget-latest-posts">
                 
-                <h4 class="widget-title">Últimas Notícias</h4>
-                
-                <div class="item first">
-                    <a class="title" href="javascript:;">Notícias #4</a>
-                    <span class="date">22 Jun 2014</span> <a href="javascript:;" class="comments"> <i class="fa fa-comments-o"></i> <span class="comment-num ib">7</span></a>
-                </div>
-                
-                <div class="item">
-                    <a class="title" href="javascript:;">Notícias #3</a>
-                    <span class="date">20 Jun 2014</span> <a href="javascript:;" class="comments"> <i class="fa fa-comments-o"></i> <span class="comment-num ib">13</span></a>
-                </div>
-                
-                <div class="item">
-                    <a class="title" href="javascript:;">Notícias #2</a>
-                    <span class="date">13 Jun 2014</span> <a href="javascript:;" class="comments"> <i class="fa fa-comments-o"></i> <span class="comment-num ib">5</span></a>
-                </div>
-                
-                <div class="item latest">
-                    <a class="title" href="javascript:;">Notícias #1</a>
-                    <span class="date">21 June 2013</span> <a href="javascript:;" class="comments"> <i class="fa fa-comments-o"></i> <span class="comment-num ib">26</span></a>
-                </div>
+              <a class="twitter-timeline" href="https://twitter.com/lucky_code" data-widget-id="489532145358995457">Tweets by @lucky_code</a>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
                 
             </div>
             
@@ -172,10 +155,7 @@
     </script>
     
 
-           $( document ).ready(function() {
-
-
-});
+       
 
 
     

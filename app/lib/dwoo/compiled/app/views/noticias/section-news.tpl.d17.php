@@ -20,7 +20,7 @@ if ($this->isArray($_fh0_data) === true)
 ?>
                       <article class="post with-thumbnail" data-appear-animation="fadeIn">
                         <div class="thumbnail">
-                            <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/View/<?php echo $this->scope["noticia"]["alias"];?>"><img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["noticia"]["foto_chamada"];?>" alt="" width="364" height="130" /></a>
+                            <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/View/<?php echo $this->scope["noticia"]["alias"];?>"><img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["noticia"]["foto_chamada"];?>" alt="<?php echo $this->scope["noticia"]["titulo"];?>" width="364" height="160" /></a>
                             <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/View/<?php echo $this->scope["noticia"]["alias"];?>" class="thumb-hover"><span class="details">Ver mais <i class="menu-angle"></i></span></a>
                             <div class="clear"></div>
                         </div>
@@ -55,10 +55,26 @@ if ($this->isArray($_fh0_data) === true)
 
                 <div class="pagination">
                     <div class="numeric">
-                        <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/" class="button dark"><<</a>
+                        <?php if ((isset($this->scope["paginacao"]["atual"]) ? $this->scope["paginacao"]["atual"]:null) > 0) {
+?>
+                            <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/" class="button dark">0</a>
+                        <?php 
+}?>
+
                         <?php if ((isset($this->scope["paginacao"]["atual"]) ? $this->scope["paginacao"]["atual"]:null) > 1) {
 ?>
-                              <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/pagina/<?php echo $this->scope["paginacao"]["atual"]-1;?>" class="button dark"><?php echo $this->scope["paginacao"]["atual"]-1;?></a> 
+                                <?php if ((isset($this->scope["paginacao"]["atual"]) ? $this->scope["paginacao"]["atual"]:null)-1 == 0) {
+?>
+                                    <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/pagina/<?php echo $this->scope["paginacao"]["atual"]-1;?>" class="button dark">0</a>       
+                                <?php 
+}
+else {
+?>
+                                   <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/pagina/<?php echo $this->scope["paginacao"]["atual"]-1;?>" class="button dark"><?php echo $this->scope["paginacao"]["atual"]-1;?></a>        
+                                <?php 
+}?>
+
+                              
                         <?php 
 }?>
 
@@ -83,7 +99,6 @@ else {
 	}
 }?>
 
-                         <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias/pagina/<?php echo $this->scope["paginacao"]["total"];?>" class="button dark">>></a>
                     </div>
                     
                 </div>

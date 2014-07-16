@@ -30,77 +30,45 @@
                 
                     <div id="home-portfolio" class="portfolio-items">
                     
-                        <div class="item w2 wordpress-themes illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_david.jpg" width="336" height="336" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom" alt='ir para o david luiz' title='ir para o david luiz'></a>
-                                <a href="javascript:;" class="icon-document"  alt='Detalhes Projeto' title='Detalhes do projeto'></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item photography illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_probiotica.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item wordpress-themes photography">
-                            <a href="javascript:;"><img src="img/banner_home_printpic.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design photography illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_brwod.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design photography">
-                            <a href="javascript:;"><img src="img/banner_home_p2s.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
+                   <?php $this->scope["c"]=1?>
 
-                        <div class="item w2 photography wordpress-themes illustrations">
-                            <a href="javascript:;"><img src="img/banner_home_vaimoto.jpg" width="336" height="336" alt="" /></a>
+                    <?php 
+$_fh0_data = (isset($this->scope["portifolios"]) ? $this->scope["portifolios"] : null);
+if ($this->isArray($_fh0_data) === true)
+{
+	foreach ($_fh0_data as $this->scope['portifolio'])
+	{
+/* -- foreach start output */
+?>
+                        <?php if ((isset($this->scope["c"]) ? $this->scope["c"] : null) == 1 || (isset($this->scope["c"]) ? $this->scope["c"] : null) == 6) {
+?>
+                            <?php $this->scope["dimensao"]='width="336" height="336"'?>
+
+                        <?php 
+}
+else {
+?>
+                            <?php $this->scope["dimensao"]='width="165" height="165"'?>
+
+                        <?php 
+}?>
+
+                        <div class="item w2 wordpress-themes">
+                            <a href="<?php echo $_SESSION['sys']['base_url'];?>Portfolio/View/<?php echo $this->scope["portifolio"]["alias"];?>"><img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["portifolio"]["foto_chamada"];?>" <?php echo $this->scope["dimensao"];?>  alt="" /></a>
                             <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
+                                <a href="<?php echo $_SESSION['sys']['base_url'];?>Portfolio/View/<?php echo $this->scope["portifolio"]["alias"];?>" class="icon-document"  alt='Detalhes Projeto' title='Detalhes'></a>
+                                <a href="<?php echo $this->scope["portifolio"]["link"];?>" target="_blank" class="icon-zoom" alt='Visitar' title='ir para o david luiz'></a>
                             </div>
                         </div>
+                        <?php $this->scope["c"]=((isset($this->scope["c"]) ? $this->scope["c"] : null) + 1)?>
+
+                    <?php 
+/* -- foreach end output */
+	}
+}?>
+
                         
-                        <div class="item web-design wordpress-themes">
-                            <a href="javascript:;"><img src="img/banner_home_valendo.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
                         
-                        <div class="item web-design wordpress-themes illustrations">
-                            <a href="javascript:;"><img src="images/temp/home_small_6.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a>
-                            </div>
-                        </div>
-                        
-                        <div class="item web-design illustrations">
-                            <a href="javascript:;"><img src="images/temp/home_small_7.jpg" width="165" height="165" alt="" /></a>
-                            <div class="overlay">
-                                <a href="javascript:;" class="icon-zoom"></a>
-                                <a href="javascript:;" class="icon-document"></a> 
-                            </div>
-                        </div>
                     
                     </div>
                 

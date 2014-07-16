@@ -302,7 +302,7 @@ class Noticias extends Controller{
        $dataEUA = $data['2'].'-'.$data['1'].'-'.$data['0'];
        $dados['data'] = $dataEUA;
        if($_FILES['foto']['name']){
-            $pasta = PATCH_IMAGES;
+            $pasta = PATCH_IMAGES.'/uploads/';
             $nome_imagem  = $_FILES['foto']['name'];
             $ext = strtolower(strrchr($nome_imagem,"."));
             $nome_atual = md5(date('Y/m/d-H:i:s').rand(1,100)).$ext;

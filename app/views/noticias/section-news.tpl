@@ -41,14 +41,20 @@
 
                 <div class="pagination">
                     <div class="numeric">
-                        <a href="{$dwoo.session.sys.base_url}Noticias/" class="button dark"><<</a>
+                        {if $paginacao.atual > 0}
+                            <a href="{$dwoo.session.sys.base_url}Noticias/" class="button dark">0</a>
+                        {/if}
                         {if $paginacao.atual > 1}
-                              <a href="{$dwoo.session.sys.base_url}Noticias/pagina/{$paginacao.atual - 1}" class="button dark">{$paginacao.atual - 1}</a> 
+                                {if $paginacao.atual - 1 == 0}
+                                    <a href="{$dwoo.session.sys.base_url}Noticias/pagina/{$paginacao.atual - 1}" class="button dark">0</a>       
+                                {else}
+                                   <a href="{$dwoo.session.sys.base_url}Noticias/pagina/{$paginacao.atual - 1}" class="button dark">{$paginacao.atual - 1}</a>        
+                                {/if}
+                              
                         {/if}
                         {foreach $paginacao.paginas pag} 
                             <a href="{$dwoo.session.sys.base_url}Noticias/pagina/{$pag.num}" class="button {if $pag.current}{$pag.current}{else}dark{/if}">{$pag.num}</a> 
                         {/foreach}
-                         <a href="{$dwoo.session.sys.base_url}Noticias/pagina/{$paginacao.total}" class="button dark">>></a>
                     </div>
                     
                 </div>

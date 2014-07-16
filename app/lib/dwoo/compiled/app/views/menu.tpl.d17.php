@@ -26,48 +26,19 @@
         
     </li>
     <li class="menu-item level-0">
-        <a href="<?php echo $_SESSION['sys']['base_url'];?>Portifolio" class="item no-icon">
+        <a href="<?php echo $_SESSION['sys']['base_url'];?>Portfolio" class="item no-icon">
             <span class="menu-item-content ib">
                 <span class="menu-text">Portfólio</span>
             </span>
         </a>
     </li>
     <li class="menu-item level-0">
-        <a href="<?php echo $_SESSION['sys']['base_url'];?>Tutorias" class="item no-icon">
+        <a href="<?php echo $_SESSION['sys']['base_url'];?>Tutoriais" class="item no-icon">
             <span class="menu-item-content ib">
-                <span class="menu-text">Tutoriais <i class="arrow-drop"></i></span>
+                <span class="menu-text">Tutoriais</span>
             </span>
         </a>
-        <ul class="sub-menu">
-            <li class="level-1">
-                <a href="<?php echo $_SESSION['sys']['base_url'];?>Tutorias/Categoria/PHP" class="item no-icon">
-                    <span class="menu-item-content ib">
-                        <span class="menu-text">PHP</span>
-                    </span>
-                </a>
-            </li>
-            <li class="level-1">
-                <a href="<?php echo $_SESSION['sys']['base_url'];?>Tutorias/Categoria/HTML" class="item no-icon">
-                    <span class="menu-item-content ib">
-                        <span class="menu-text">HTML</span>
-                    </span>
-                </a>
-            </li>
-            <li class="level-1">
-                <a href="<?php echo $_SESSION['sys']['base_url'];?>Tutorias/Categoria/CSS" class="item no-icon">
-                    <span class="menu-item-content ib">
-                        <span class="menu-text">CSS</span>
-                    </span>
-                </a>
-            </li>
-            <li class="level-1">
-                <a href="<?php echo $_SESSION['sys']['base_url'];?>Tutorias/Categoria/JAVASCRIPT" class="item no-icon">
-                    <span class="menu-item-content ib">
-                        <span class="menu-text">JAVASCRIPT</span>
-                    </span>
-                </a>
-            </li>
-        </ul>
+       
     </li>
     <li class="menu-item level-0">
         <a href="<?php echo $_SESSION['sys']['base_url'];?>Noticias" class="item no-icon">
