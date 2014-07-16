@@ -19,6 +19,7 @@ if (function_exists('Dwoo_Plugin_include')===false)
 ?>
         <meta name="description" content="<?php echo $this->scope["meta"]["description"];?>" />
         <meta property="og:title" content="<?php echo $this->scope["meta"]["og_title"];?>" />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="<?php echo $this->scope["meta"]["og_url"];?>" />
         <meta property="og:image" content="<?php echo $this->scope["meta"]["og_image"];?>" />
         <meta property="og:description" content="<?php echo $this->scope["meta"]["og_description"];?>" />

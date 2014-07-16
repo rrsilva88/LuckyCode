@@ -88,7 +88,17 @@
                     
                             </footer>
                         </div>
-                        
+                           {literal}
+                                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                <!-- Tutoriais -->
+                                <ins class="adsbygoogle"
+                                 style="display:inline-block;width:728px;height:90px"
+                                 data-ad-client="ca-pub-7578060060421552"
+                                 data-ad-slot="4455358222"></ins>
+                                <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                           {/literal}
                            <div class="fb-comments" data-href="{$dwoo.session.sys.base_url}Tutoriais/View/{$tutorial.alias}" data-numposts="5" data-colorscheme="light"></div>
                     </div>
                     

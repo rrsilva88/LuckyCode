@@ -57,7 +57,7 @@ else {
                             <a href="<?php echo $_SESSION['sys']['base_url'];?>Portfolio/View/<?php echo $this->scope["portifolio"]["alias"];?>"><img src="<?php echo $_SESSION['sys']['base_url'];?>uploads/<?php echo $this->scope["portifolio"]["foto_chamada"];?>" <?php echo $this->scope["dimensao"];?>  alt="" /></a>
                             <div class="overlay">
                                 <a href="<?php echo $_SESSION['sys']['base_url'];?>Portfolio/View/<?php echo $this->scope["portifolio"]["alias"];?>" class="icon-document"  alt='Detalhes Projeto' title='Detalhes'></a>
-                                <a href="<?php echo $this->scope["portifolio"]["link"];?>" target="_blank" class="icon-zoom" alt='Visitar' title='ir para o david luiz'></a>
+                                <a href="<?php echo $this->scope["portifolio"]["link"];?>" target="_blank" class="icon-zoom" alt='Visitar' title='Visitar'></a>
                             </div>
                         </div>
                         <?php $this->scope["c"]=((isset($this->scope["c"]) ? $this->scope["c"] : null) + 1)?>
