@@ -56,7 +56,7 @@
   <div class="control-group">
     <label class="control-label">Tags</label>
         <div class="controls">
-          <input type="text" placeholder="Sub-título" value='{$portifolio.tags}' class="span12">
+          <input type="text" name='tags' placeholder="Tags (Separadas por virgula)"  value='{$portifolio.tags}' class="span12">
         </div>
   </div>      
   
