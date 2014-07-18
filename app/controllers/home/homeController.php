@@ -18,7 +18,30 @@ class home extends Controller{
     }
     
     
+    function Contato(){
+        
+          $data = array();
+          $data['sections'][0] = $this->dwoo->get('app/views/home/section-contato.tpl'); 
+          $data['body_class'] = ' page template-contact';
+          echo $this->dwoo->get('app/views/index.tpl',$data);
+     
+        
+    }
     
+    function EnviaContato(){
+        $model = new homeModel();
+        $dados = $_POST;
+        $dados['data'] = date('Y-m-d');
+        $ret = $model->saveContato($dados);
+        
+        if(isset($ret['id'])){
+            $ret['status'] = true;
+        }else{
+            unset($ret);
+            $ret['status'] = false;
+        }
+        echo json_encode($ret);
+    }
     
     
     function ajaxSESS(){

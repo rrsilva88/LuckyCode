@@ -374,13 +374,13 @@ jQuery.noConflict()( function($){
 				}
 				
 				$.ajax({
-					url: 'contact-form.php',
+					url: 'home/EnviaContato',
 					type: "POST",
 					data: {
-						'name' : name,
+						'nome' : name,
 						'email' : email,
-						'message' : message,
-						'subject' : subject
+						'mensagem' : message,
+						'assunto' : subject
 					},
 					beforeSend: function() {
 						NProgress.start();
@@ -388,7 +388,7 @@ jQuery.noConflict()( function($){
 					success: function() {
 						NProgress.done(true);
 				
-						$('#contact-form-part').html( '<h2 id="message-send" class="success">Your message has been sent. Thank you!</h2>' );
+						$('#contact-form-part').html( '<h2 id="message-send" class="success">Sua mensagem foi enviada. Obrigado!</h2>' );
 				
 						var msgTop = $("#message-send").offset().top;
 				
@@ -398,7 +398,7 @@ jQuery.noConflict()( function($){
 				
 					}
 				});
-				
+				return false;
 			});
 		},
 	
@@ -1139,3 +1139,16 @@ jQuery.noConflict()( function($){
     
 
 });
+
+
+function enviaContato(){
+      serial = jQuery("#form_footer").serialize();
+      jQuery.post("home/EnviaContato", serial,
+              function(data){
+                  if(data.status == true){
+                        alert('Sua mensagem foi enviada. Obrigado!');
+                  }else{
+                        alert('Erro ao processar o envio por favor tente novamente!');
+                  } 
+         }, "json");
+}

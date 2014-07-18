@@ -17,6 +17,24 @@ class homeModel extends Model{
             return false;
         }
     }
+    
+    
+    function saveContato($dados){
+               global $DB;
+        if($insert = $this->autoInsert('contato',$dados)){
+            if(is_numeric($insert)){
+                $ret['id'] = $insert;
+            }else{
+            
+                return $DB->ErrorMsg(); 
+                #$ret = $insert;
+            }
+            return $ret;
+        }else{
+            return $DB->ErrorMsg(); 
+        }
+        
+    }
     function createUser($dados){
         global $DB;
         $insert = "INSERT INTO 

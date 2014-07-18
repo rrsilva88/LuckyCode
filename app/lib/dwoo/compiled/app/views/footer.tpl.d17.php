@@ -26,22 +26,22 @@
                 
                 <h4 class="widget-title">Contato</h4>
                 
-                <form action="javascript:;" method="post">
+                <form  id='form_footer' method="post">
                     <fieldset>
                         <p>
-                            <input type="text" name="" value="" placeholder="Nome" />
+                            <input type="text" name="nome" value="" placeholder="Nome" />
+                        </p>  
+                        <p>
+                            <input type="text" name="assunto" value="" placeholder="Assunto" />
                         </p>
                         <p>
-                            <input type="email" name="" value="" placeholder="Email" />
+                            <input type="email" name="email" value="" placeholder="Email" />
                         </p>
                         <p>
-                            <textarea name="" placeholder="Mensagem"></textarea>
+                            <textarea name="mensagem" placeholder="Mensagem"></textarea>
                         </p>
                         <p>
-                            <span class="captcha">
-                                2+2 = <input type="text" value="" />
-                            </span>
-                            <input type="submit" value="Enviar" />
+                            <input type="button" value="Enviar" onclick="enviaContato();" />
                         </p>
                     </fieldset>
                 </form>
