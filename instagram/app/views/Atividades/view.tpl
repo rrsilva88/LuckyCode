@@ -2,7 +2,7 @@
               <div class="grid simple">
                 <div class="grid-title no-border">
                   <h4>Editando: <span class="semi-bold">{$title}</span></h4>
-                  <div class="tools"><a href="{$dwoo.session.sys.base_url}Usuarios/Visualizar/{$usuario.id_user}" class="reload"></a></div>
+                  <div class="tools"><a href="{$dwoo.session.sys.base_url}Atividades/Visualizar/{$usuario.id_user}" class="reload"></a></div>
                 </div>
                 <form id='frm_user'>
                 <input type='hidden' name='id_user' value='{$usuario.id_user}'>

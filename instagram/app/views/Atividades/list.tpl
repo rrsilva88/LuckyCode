@@ -1,0 +1,34 @@
+{foreach $api.data pic}
+            <div class="col-md-6 col-vlg-4 col-sm-12 ">
+                <!-- BEGIN BLOG POST BIG IMAGE WIDGET -->
+                <div class="tiles overflow-hidden full-height tiles-overlay-hover m-b-20 widget-item">
+                  <div class="controller overlay right"></div>
+                
+                  <div class="overlayer bottom-left fullwidth">
+                    <div class="overlayer-wrapper">
+                      <div class="tiles gradient-grey p-l-20 p-r-20 p-b-20 p-t-20">
+                      {if $pic.likes.count > 0}
+                        <a href="#" class="hashtags transparent">{$pic.likes.count} Likes </a>
+                      {/if}
+                      {if $pic.comments.count > 0}
+                        <a href="#" class="hashtags transparent">{$pic.comments.count} Comentários  </a>
+                      {/if}
+                       
+                        <p class="p-t-5 p-b-5 ">
+                        {if $pic.caption.text}
+                            {$pic.caption.text}
+                          {else}
+                                ...    
+                          {/if}
+                        </p>
+                        <button type="button" class="btn btn-primary">Criar Atividade</button>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="{$pic.images.standard_resolution.url}" data-src="{$pic.images.standard_resolution.url}" data-src-retina="{$pic.images.standard_resolution.url}" alt="" class="image-responsive-width hover-effect-img"> 
+                </div>
+                </div>
+{/foreach}    
+       
+      
+   

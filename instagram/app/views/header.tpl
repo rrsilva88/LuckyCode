@@ -32,6 +32,8 @@
 <link rel="stylesheet" href="{$dwoo.session.sys.base_url}assets/plugins/jquery-ricksaw-chart/css/rickshaw.css" type="text/css" media="screen" >
 <link href="{$dwoo.session.sys.base_url}assets/plugins/jquery-isotope/isotope.css" rel="stylesheet" type="text/css"/>
 
+<link href="{$dwoo.session.sys.base_url}assets/plugins/jquery-superbox/css/style.css" rel="stylesheet" type="text/css" media="screen"/>
+
 
 
 <!-- BEGIN CORE CSS FRAMEWORK -->                                                           

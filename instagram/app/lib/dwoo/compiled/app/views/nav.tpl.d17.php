@@ -72,11 +72,23 @@ echo $_SESSION['loginADM']['primeiro_nome'];?> <span class="bold"><?php echo $_S
              
             </div>
           </div>
-          <div class="profile-pic"> <img src="assets/img/profiles/avatar_small.jpg"  alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> </div>
+          <div class="profile-pic"> 
+          <?php if ((isset($_SESSION['accounts']['0']['picture'])?$_SESSION['accounts']['0']['picture']:null)) {
+?>
+                <img src="<?php echo $_SESSION['accounts']['0']['picture'];?>"  alt="" data-src="<?php echo $_SESSION['accounts']['0']['picture'];?>" data-src-retina="<?php echo $_SESSION['accounts']['0']['picture'];?>" width="35" height="35" /> 
+              <?php 
+}
+else {
+?>
+                <img src="assets/img/profiles/avatar_small.jpg"  alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> 
+          <?php 
+}?>
+
+          </div>
         </div>
         <ul class="nav quick-section ">
-          <li class="quicklinks"> <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
-            <div class="iconset top-settings-dark "></div>
+          <li class="quicklinks"> <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" onclick="logout();" id="user-options">
+            <i class="fa fa-sign-out"></i>
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
               <li><a href="user-profile.html">Minha Conta</a> </li>

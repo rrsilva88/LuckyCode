@@ -281,16 +281,28 @@ class Atividades extends Controller{
     }
     
     function Criar(){
-        
+        $data['sidebar'] = true; 
         if(isset($_SESSION['accounts'])){
-            $data['sidebar'] = true;   
-            $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/new.tpl');
             
+             global $instagram;
+             $instagram->setAccessToken($_SESSION['accounts'][0]['access_token']);
+             #$result = $instagram->getUserMedia();
+             
+             
+             $feed = $instagram->getUserFeed();
+             
+             if(isset($feed->meta->error_type)){
+                  $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/error_callback_instagram.tpl');  
+             }else{
+                 $result = $instagram->pagination($feed);
+                 $dados['api'] = $this->object_to_array_recusive($result);
+                 $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/list.tpl',$dados);
+             }
+             
+             
         }else{
-            $data['sidebar'] = true; 
-              
             $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/login_instagram.tpl');
-            }
+        }
             
         $html = $this->dwoo->get('app/views/index.tpl', $data);
        echo $html;  

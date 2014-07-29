@@ -67,11 +67,17 @@
              
             </div>
           </div>
-          <div class="profile-pic"> <img src="assets/img/profiles/avatar_small.jpg"  alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> </div>
+          <div class="profile-pic"> 
+          {if $dwoo.session.accounts.0.picture}
+                <img src="{$dwoo.session.accounts.0.picture}"  alt="" data-src="{$dwoo.session.accounts.0.picture}" data-src-retina="{$dwoo.session.accounts.0.picture}" width="35" height="35" /> 
+              {else}
+                <img src="assets/img/profiles/avatar_small.jpg"  alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> 
+          {/if}
+          </div>
         </div>
         <ul class="nav quick-section ">
-          <li class="quicklinks"> <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
-            <div class="iconset top-settings-dark "></div>
+          <li class="quicklinks"> <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" onclick="logout();" id="user-options">
+            <i class="fa fa-sign-out"></i>
             </a>
             <ul class="dropdown-menu  pull-right" role="menu" aria-labelledby="user-options">
               <li><a href="user-profile.html">Minha Conta</a> </li>

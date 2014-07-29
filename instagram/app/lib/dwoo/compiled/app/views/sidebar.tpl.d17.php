@@ -4,7 +4,21 @@
     <!-- BEGIN MINI-PROFILE -->
     <div class="page-sidebar-wrapper" id="main-menu-wrapper">
       <div class="user-info-wrapper">
-        <div class="profile-wrapper"> <img src="assets/img/profiles/avatar.jpg"  alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> </div>
+     
+        <div class="profile-wrapper"> 
+            <?php if ((isset($_SESSION['accounts']['0']['picture'])?$_SESSION['accounts']['0']['picture']:null)) {
+?>
+                <img src="<?php echo $_SESSION['accounts']['0']['picture'];?>"  alt="" data-src="<?php echo $_SESSION['accounts']['0']['picture'];?>" data-src-retina="<?php echo $_SESSION['accounts']['0']['picture'];?>" width="69" height="69" />     
+            <?php 
+}
+else {
+?>
+                <img src="assets/img/profiles/avatar.jpg"  alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> 
+            <?php 
+}?>
+
+        
+        </div>
         <div class="user-info">
           <div class="greeting">Bem vindo</div>
           <div class="username"><?php echo $_SESSION['loginADM']['primeiro_nome'];?></div>

@@ -136,6 +136,19 @@ class Model{
             return $DB->ErrorMsg(); 
         }
     }  
+    
+    function getContasInstagram($id_user){
+         global $DB;  
+        $SQL = 'SELECT * FROM contas_user
+                WHERE id_user = "'.$id_user.'"
+                ORDER BY 
+                id_conta_user ASC;';
+        if($ret = $DB->GetAll($SQL)){
+            return $ret;
+       }else{
+            return $DB->ErrorMsg();
+       }  
+    }
    
    
    

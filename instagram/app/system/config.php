@@ -37,6 +37,12 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     }else{
         define("BASE_URL","http://localhost/git/LuckyCode/instagram/");
     }
+    
+    
+    define("INSTA_KEY","82596154753047fab93426aa01643390");
+    define("INSTA_SECRET","a5ffd4caefa0462fa45974893b180230");
+    
+    
     define("PATCH_IMAGES","C:\Users\Rafa\Documents\GitHub\LuckyCode\instagram\\");
     define("BASE_SITE","http://localhost/git/LuckyCode/instagram/");
     
@@ -71,7 +77,10 @@ if($_SERVER['SERVER_NAME'] == 'localhost'){
     define("PATCH_IMAGES","/var/www/html/");
     define("BASE_SITE","http://luckycode.com.br/instagram/");
     
-    define("CALLBACK_INSTAGRAM",'');
+    
+    define("INSTA_KEY","71914354b8024239b149f2176ef96743");
+    define("INSTA_SECRET","f8953f9a124746f49667246168203445");
+    
     
 
 }

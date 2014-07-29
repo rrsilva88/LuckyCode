@@ -61,6 +61,7 @@
 <script src="{$dwoo.session.sys.base_url}assets/js/demo.js" type="text/javascript"></script>
 <script src="{$dwoo.session.sys.base_url}assets/js/dashboard_v2.js" type="text/javascript"></script>
 <script src="{$dwoo.session.sys.base_url}assets/js/scripts.js" type="text/javascript"></script>
+<script src="{$dwoo.session.sys.base_url}assets/plugins/jquery-superbox/js/superbox.js" type="text/javascript"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {

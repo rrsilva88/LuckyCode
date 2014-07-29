@@ -286,6 +286,35 @@ class System{
         return strtr(mb_strtolower(utf8_decode($string), 'ISO-8859-1'),$iso88591,$ascii); 
         }
         
+        function object_to_array_recusive ( $object, $assoc=TRUE, $empty='' ) 
+            { 
+
+                $res_arr = array(); 
+
+                if (!empty($object)) { 
+
+                    $arrObj = is_object($object) ? get_object_vars($object) : $object;
+
+                    $i=0; 
+                    foreach ($arrObj as $key => $val) { 
+                        $akey = ($assoc !== FALSE) ? $key : $i; 
+                        if (is_array($val) || is_object($val)) { 
+                            $res_arr[$akey] = (empty($val)) ? $empty : $this->object_to_array_recusive($val); 
+                        } 
+                        else { 
+                            $res_arr[$akey] = (empty($val)) ? $empty : (string)$val; 
+                        } 
+
+                    $i++; 
+                    }
+
+                } 
+
+                return $res_arr;
+            }
+
+
+        
         
 }
 ?>

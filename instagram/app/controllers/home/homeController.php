@@ -29,6 +29,7 @@ class home extends Controller{
                 $_SESSION['loginADM']['sobrenome'] = $nome[1];
             }
             $_SESSION['loginADM']['acesso'] = $this->getMenu($ret[0]['id_user']);
+            $this->getContasInstagram();
             
             $retorno['status'] = true;
             $retorno['retorno'] = $ret[0];
@@ -73,11 +74,40 @@ class home extends Controller{
     }
     
     function ajaxInstagramCallback(){
-        global $instagram;
+        global $instagram,$dwoo;
+        
         $code = $_GET['code'];
-        $data = $instagram->getOAuthToken($code);
-        echo '<pre>';
-        print_r($data);
+        $retApi = $instagram->getOAuthToken($code);
+        
+    
+        
+        if($retApi->access_token){
+            $dados['id_user'] = $_SESSION['loginADM']['id_user'];
+            $dados['access_token'] = $retApi->access_token;
+            $dados['instagram_id'] = $retApi->user->id;
+            $dados['nome'] = $retApi->user->full_name;
+            $dados['username'] = $retApi->user->username;
+            $dados['picture'] = $retApi->user->profile_picture;
+            $dados['code'] = $code;
+            $model = new homeModel();
+            $model->SaveContaInsta($dados);
+            $this->getContasInstagram();
+            $data['sidebar'] = true; 
+            $data['content']['rows'][1]['widgets'][1] =  $dwoo->get('app/views/callback_instagram.tpl',$dados);  
+            
+            
+        }else{
+            
+            $data['sidebar'] = true; 
+            $data['content']['rows'][1]['widgets'][1] =  $dwoo->get('app/views/error_callback_instagram.tpl');  
+           
+        }
+        
+        $html = $this->dwoo->get('app/views/index.tpl', $data);
+        echo $html;  
+        
+            
+      
     }
     
 

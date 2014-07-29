@@ -86,7 +86,20 @@ class Controller extends System{
        
       return $status;
        
-   }   
+   } 
+   
+   function getContasInstagram(){
+        $model = new Model();
+        $contas = $model->getContasInstagram($_SESSION['loginADM']['id_user']);
+        if(is_array($contas)){
+            if(isset($_SESSION['accounts'])){
+                unset($_SESSION['accounts']);
+                $_SESSION['accounts'] = $contas;
+            }else{
+                $_SESSION['accounts'] = $contas;
+            }
+        }
+   }  
    
    function getMenu($id_admin){
         $model = new Model();

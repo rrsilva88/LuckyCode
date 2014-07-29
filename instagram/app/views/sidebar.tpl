@@ -2,7 +2,15 @@
     <!-- BEGIN MINI-PROFILE -->
     <div class="page-sidebar-wrapper" id="main-menu-wrapper">
       <div class="user-info-wrapper">
-        <div class="profile-wrapper"> <img src="assets/img/profiles/avatar.jpg"  alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> </div>
+     
+        <div class="profile-wrapper"> 
+            {if $dwoo.session.accounts.0.picture}
+                <img src="{$dwoo.session.accounts.0.picture}"  alt="" data-src="{$dwoo.session.accounts.0.picture}" data-src-retina="{$dwoo.session.accounts.0.picture}" width="69" height="69" />     
+            {else}
+                <img src="assets/img/profiles/avatar.jpg"  alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> 
+            {/if}
+        
+        </div>
         <div class="user-info">
           <div class="greeting">Bem vindo</div>
           <div class="username">{$dwoo.session.loginADM.primeiro_nome}</div>

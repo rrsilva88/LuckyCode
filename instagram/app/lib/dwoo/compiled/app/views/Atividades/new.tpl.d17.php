@@ -4,7 +4,7 @@
               <div class="grid simple">
                 <div class="grid-title no-border">
                   <h4>Criando novo usuário</h4>
-                  <div class="tools"><a href="<?php echo $_SESSION['sys']['base_url'];?>Usuarios/Visualizar/<?php echo $this->scope["usuario"]["id_user"];?>" class="reload"></a></div>
+                  <div class="tools"><a href="<?php echo $_SESSION['sys']['base_url'];?>Atividades/Criar/" class="reload"></a></div>
                 </div>
                   <form id='frm_user'>
                 <div class="grid-body no-border"> <br>

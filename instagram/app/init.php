@@ -61,8 +61,8 @@ $dwoo = new Dwoo();
 
 global $instagram;
   $instagram = new Instagram(array(
-      'apiKey'      => '82596154753047fab93426aa01643390',
-      'apiSecret'   => 'a5ffd4caefa0462fa45974893b180230',
+      'apiKey'      => INSTA_KEY,
+      'apiSecret'   => INSTA_SECRET,
       'apiCallback' => CALLBACK_INSTAGRAM
     ));
 $config = array(

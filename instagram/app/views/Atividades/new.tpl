@@ -2,7 +2,7 @@
               <div class="grid simple">
                 <div class="grid-title no-border">
                   <h4>Criando novo usuário</h4>
-                  <div class="tools"><a href="{$dwoo.session.sys.base_url}Usuarios/Visualizar/{$usuario.id_user}" class="reload"></a></div>
+                  <div class="tools"><a href="{$dwoo.session.sys.base_url}Atividades/Criar/" class="reload"></a></div>
                 </div>
                   <form id='frm_user'>
                 <div class="grid-body no-border"> <br>
