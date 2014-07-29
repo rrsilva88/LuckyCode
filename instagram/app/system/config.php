@@ -113,7 +113,10 @@ define("NAME_EMAIL",'LuckyCode');
 #INSTAGRAM
 
 define("CALLBACK_INSTAGRAM",BASE_URL.'ajaxInstagramCallback');
-
+        
+        if(isset($_GET['d'])){
+            echo CALLBACK_INSTAGRAM;
+        }
 # SESSION SYS
 $_SESSION['sys']['title'] = 'InstaUP';
 $_SESSION['sys']['base_url'] = BASE_URL;
