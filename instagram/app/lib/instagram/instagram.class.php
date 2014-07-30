@@ -146,6 +146,15 @@ class Instagram {
    */
   public function getUserMedia($id = 'self', $limit = 0) {
     return $this->_makeCall('users/' . $id . '/media/recent', ($id === 'self'), array('count' => $limit));
+  }  
+  
+  public function getUserMediaPag($id = 'self', $limit = 0,$max_id = null) {
+      $params['count'] = $limit;
+      if(!is_null($max_id)){
+        $params['max_id'] = $max_id;    
+      }
+      
+    return $this->_makeCall('users/' . $id . '/media/recent', ($id === 'self'),$params);
   }
 
   /**

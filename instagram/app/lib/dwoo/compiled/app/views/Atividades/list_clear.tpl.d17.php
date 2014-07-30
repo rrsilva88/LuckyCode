@@ -1,15 +1,6 @@
 <?php
 /* template head */
-/* end template head */ ob_start(); /* template body */ ?><ul class="breadcrumb">
-        <li>
-          <p>Atividades</p>
-        </li>
-        <li><a href="#" class="active">Selecionando Mídia</a> </li>
-      </ul>
-      <div class="page-title"> <i class="fa fa-check-square-o"></i>
-        <h3>Selecione uma <span class="semi-bold">Mídia</span></h3>
-      </div>
-<div id='list_feed_instagram'>
+/* end template head */ ob_start(); /* template body */ ?>
 <?php 
 $_fh0_data = (isset($this->scope["api"]["data"]) ? $this->scope["api"]["data"]:null);
 if ($this->isArray($_fh0_data) === true)
@@ -18,7 +9,7 @@ if ($this->isArray($_fh0_data) === true)
 	{
 /* -- foreach start output */
 ?>
-            <div class="col-md-6 col-vlg-4 col-sm-12" id='midia_instagram_<?php echo $this->scope["pic"]["id"];?>'>
+             <div class="col-md-6 col-vlg-4 col-sm-12" id='midia_instagram_<?php echo $this->scope["pic"]["id"];?>'>
                 <!-- BEGIN BLOG POST BIG IMAGE WIDGET -->
                 <div class="tiles overflow-hidden full-height tiles-overlay-hover m-b-20 widget-item">
                   <div class="controller overlay right"></div>
@@ -65,7 +56,6 @@ else {
 	}
 }?>    
 
-</div>
        
       
    <?php  /* end template body */

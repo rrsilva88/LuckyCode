@@ -286,17 +286,25 @@ class Atividades extends Controller{
             
              global $instagram;
              $instagram->setAccessToken($_SESSION['accounts'][0]['access_token']);
-             #$result = $instagram->getUserMedia();
-             
-             
-             $feed = $instagram->getUserFeed();
+           #  $feed = $instagram->getUserMediaPag('self',20,'742694257546252578_275684371');
+             $feed = $instagram->getUserMediaPag('self',20);
+             #$feed = $instagram->getUserFeed();
              
              if(isset($feed->meta->error_type)){
                   $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/error_callback_instagram.tpl');  
              }else{
                  $result = $instagram->pagination($feed);
+                 
+                 
+                 
                  $dados['api'] = $this->object_to_array_recusive($result);
+                 
+             #    echo '<pre>';
+             #    print_r($dados['api']);
+             #    die();
                  $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/list.tpl',$dados);
+                 $scroll['max_id'] = $dados['api']['pagination']['next_max_id'];
+                 $data['content']['rows'][1]['widgets'][2] =  $this->dwoo->get('app/views/Atividades/ScriptScroll.tpl',$scroll);
              }
              
              
@@ -307,6 +315,27 @@ class Atividades extends Controller{
         $html = $this->dwoo->get('app/views/index.tpl', $data);
        echo $html;  
       
+    }
+    
+    function ajaxGetPaginaFeed(){
+             global $instagram;
+             $instagram->setAccessToken($_SESSION['accounts'][0]['access_token']);
+             $feed = $instagram->getUserMediaPag('self',20,$_GET['max_id']);
+             
+             if(isset($feed->meta->error_type)){
+                 $ret['status'] = false;
+             }else{
+                 $result = $instagram->pagination($feed);
+                 $dados['api'] = $this->object_to_array_recusive($result);
+                 $ret['status'] = true;
+                 $ret['html'] =  $this->dwoo->get('app/views/Atividades/list_clear.tpl',$dados);
+                 $ret['max_id'] = $dados['api']['pagination']['next_max_id'];
+             }
+             
+             echo json_encode($ret);
+             
+        
+        
     }
     
     function ajaxUpdate(){
