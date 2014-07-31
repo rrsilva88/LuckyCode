@@ -8,7 +8,7 @@
 function Create(alias){
       window.location.href = base_url+alias+'/Criar/';
 }
-
+       
 function View(alias,id){
       window.location.href = base_url+alias+'/Visualizar/'+id;
 }
@@ -25,4 +25,10 @@ function Delete(alias,id){
         
         }, "json");    
    } 
+}
+
+
+
+function ConfigAtividade(tipo,id){
+      window.location.href = base_url+'Atividades/Configurar/'+tipo+'/'+id;
 }

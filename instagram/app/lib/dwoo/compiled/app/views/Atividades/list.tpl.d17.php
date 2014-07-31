@@ -53,7 +53,7 @@ else {
 }?>
 
                         </p>
-                        <button type="button" class="btn btn-primary" id='btn_instagram_<?php echo $this->scope["pic"]["id"];?>'>Criar Atividade</button>
+                        <button type="button" class="btn btn-primary" id='btn_instagram_<?php echo $this->scope["pic"]["id"];?>'  onclick="ConfigAtividade('Midia','<?php echo $this->scope["pic"]["id"];?>')">Criar Atividade</button>
                       </div>
                     </div>
                   </div>

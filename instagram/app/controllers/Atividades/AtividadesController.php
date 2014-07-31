@@ -281,7 +281,7 @@ class Atividades extends Controller{
     }
     
     function Criar(){
-        $data['sidebar'] = true; 
+        
         if(isset($_SESSION['accounts'])){
             
              global $instagram;
@@ -315,6 +315,35 @@ class Atividades extends Controller{
         $html = $this->dwoo->get('app/views/index.tpl', $data);
        echo $html;  
       
+    }
+    
+    function Configurar(){
+       global $instagram;
+       $params = $this->getParams();
+       $tipo = $params[0];
+       $instagram->setAccessToken($_SESSION['accounts'][0]['access_token']);
+       switch($tipo){
+           case 'Midia':
+               $media_id = $params[1];
+               $media = $instagram->getMedia($media_id);
+               $result = $this->object_to_array_recusive($media);
+               $dados = array();
+               $dados['pic'] = $result['data'];
+               $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/config.tpl',$dados);        
+               
+               
+           break;
+           case 'Seguidores':
+           
+           break;
+       }
+       
+       
+       
+       
+       
+       $html = $this->dwoo->get('app/views/index.tpl', $data);
+       echo $html;    
     }
     
     function ajaxGetPaginaFeed(){

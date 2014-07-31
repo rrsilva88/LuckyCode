@@ -22,7 +22,7 @@
                                 ...    
                           {/if}
                         </p>
-                        <button type="button" class="btn btn-primary" id='btn_instagram_{$pic.id}'>Criar Atividade</button>
+                        <button type="button" class="btn btn-primary" id='btn_instagram_{$pic.id}' onclick="ConfigAtividade('Midia','{$pic.id}')">Criar Atividade</button>
                       </div>
                     </div>
                   </div>
