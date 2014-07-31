@@ -68,7 +68,8 @@ global $instagram;
 $config = array(
       'basic',
       'likes',
-      'comments'
+      'comments',
+      'relationships'
 );
 
 

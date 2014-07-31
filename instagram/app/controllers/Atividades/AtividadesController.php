@@ -268,10 +268,15 @@ class Atividades extends Controller{
          $model = new AtividadesModel();
          $uData = $model->Data($dados['id_user']);
       
+      echo "<pre>";
+      
+      print_r($uData);
+        /*
          $dados['title'] = '#'.$uData['0']['id_user'].' '.$uData['0']['nome'];
          $dados['usuario'] = $uData[0];
          $data['sidebar'] = true;   
          $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/view.tpl', $dados);
+         */
        
        
        $html = $this->dwoo->get('app/views/index.tpl', $data);
@@ -329,19 +334,12 @@ class Atividades extends Controller{
                $result = $this->object_to_array_recusive($media);
                $dados = array();
                $dados['pic'] = $result['data'];
-               $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/config.tpl',$dados);        
-               
-               
+               $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/config_media.tpl',$dados);        
            break;
            case 'Seguidores':
            
            break;
        }
-       
-       
-       
-       
-       
        $html = $this->dwoo->get('app/views/index.tpl', $data);
        echo $html;    
     }
@@ -386,7 +384,7 @@ class Atividades extends Controller{
     function ajaxSave(){
        $dados = $_POST;
        $model = new AtividadesModel(); 
-       $dados['senha'] = md5($dados['senha']);
+       $dados['data_criada'] = date("Y/m/d h:i:s");
        $ret = $model->Save($dados);
        if($ret){
             $retorno['status'] = true;   
