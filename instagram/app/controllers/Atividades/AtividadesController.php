@@ -290,7 +290,7 @@ class Atividades extends Controller{
         if(isset($_SESSION['accounts'])){
             
              global $instagram;
-             $instagram->setAccessToken($_SESSION['accounts'][0]['access_token']);
+             $instagram->setAccessToken($_SESSION['account_selected']['access_token']);
            #  $feed = $instagram->getUserMediaPag('self',20,'742694257546252578_275684371');
              $feed = $instagram->getUserMediaPag('self',20);
              #$feed = $instagram->getUserFeed();
@@ -298,17 +298,21 @@ class Atividades extends Controller{
              if(isset($feed->meta->error_type)){
                   $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/error_callback_instagram.tpl');  
              }else{
-                 $result = $instagram->pagination($feed);
+                // $result = $instagram->pagination($feed);
+                 #echo '<pre>';    
+                # print_r($feed);
+                # die();
                  
-                 
-                 
-                 $dados['api'] = $this->object_to_array_recusive($result);
+                 $dados['api'] = $this->object_to_array_recusive($feed);
                  
              #    echo '<pre>';
              #    print_r($dados['api']);
              #    die();
                  $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/list.tpl',$dados);
-                 $scroll['max_id'] = $dados['api']['pagination']['next_max_id'];
+                 $scroll = array();
+                 if(isset($dados['api']['pagination']['next_max_id'])){
+                    $scroll['max_id'] = $dados['api']['pagination']['next_max_id'];
+                 }
                  $data['content']['rows'][1]['widgets'][2] =  $this->dwoo->get('app/views/Atividades/ScriptScroll.tpl',$scroll);
              }
              
@@ -326,7 +330,7 @@ class Atividades extends Controller{
        global $instagram;
        $params = $this->getParams();
        $tipo = $params[0];
-       $instagram->setAccessToken($_SESSION['accounts'][0]['access_token']);
+       $instagram->setAccessToken($_SESSION['account_selected']['access_token']);
        switch($tipo){
            case 'Midia':
                $media_id = $params[1];
@@ -346,7 +350,7 @@ class Atividades extends Controller{
     
     function ajaxGetPaginaFeed(){
              global $instagram;
-             $instagram->setAccessToken($_SESSION['accounts'][0]['access_token']);
+             $instagram->setAccessToken($_SESSION['account_selected']['access_token']);
              $feed = $instagram->getUserMediaPag('self',20,$_GET['max_id']);
              
              if(isset($feed->meta->error_type)){

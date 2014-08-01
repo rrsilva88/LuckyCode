@@ -32,3 +32,16 @@ function Delete(alias,id){
 function ConfigAtividade(tipo,id){
       window.location.href = base_url+'Atividades/Configurar/'+tipo+'/'+id;
 }
+
+function SelecionarConta(id){
+                   $.post(base_url+'home/ajaxSelectConta',
+                    { id: id}, function( data ) {
+                    if(data.status == true){
+                         Messenger().post({message: 'Conta selecionada com sucesso!',type: 'success',showCloseButton: true});
+                         location.reload();
+                    }else{
+                        Messenger().post({message: 'Erro ao selecionar essa conta!',type: 'error',showCloseButton: true});
+                    }
+                    
+                    }, "json");   
+}

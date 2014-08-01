@@ -10,7 +10,7 @@ $(document).ready(function () {
 
         if($(window).scrollTop() == $(document).height() - $(window).height()){
             if($("#loading_scroll").val() == 0){
-                if($("#max_id_instagram").val() != null){
+                if($("#max_id_instagram").val() != ''){
                 Messenger().hideAll();
                 $("#loading_scroll").val(1)
                      Messenger().post({message: 'Carregando mais fotos',type: 'success',showCloseButton: true});
@@ -26,7 +26,7 @@ $(document).ready(function () {
                     },'json');
                     
                 }else{
-                    Messenger().post({message: 'Não mais existe registros',type: 'success',showCloseButton: true});
+                    Messenger().post({message: 'Não existe mais registros',type: 'success',showCloseButton: true});
                 }
             }
         }

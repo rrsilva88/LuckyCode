@@ -6,9 +6,9 @@
       <div class="user-info-wrapper">
      
         <div class="profile-wrapper"> 
-            <?php if ((isset($_SESSION['accounts']['0']['picture'])?$_SESSION['accounts']['0']['picture']:null)) {
+            <?php if ((isset($_SESSION['account_selected']['picture'])?$_SESSION['account_selected']['picture']:null)) {
 ?>
-                <img src="<?php echo $_SESSION['accounts']['0']['picture'];?>"  alt="" data-src="<?php echo $_SESSION['accounts']['0']['picture'];?>" data-src-retina="<?php echo $_SESSION['accounts']['0']['picture'];?>" width="69" height="69" />     
+                <img src="<?php echo $_SESSION['account_selected']['picture'];?>"  alt="" data-src="<?php echo $_SESSION['account_selected']['picture'];?>" data-src-retina="<?php echo $_SESSION['account_selected']['picture'];?>" width="69" height="69" />     
             <?php 
 }
 else {
@@ -20,8 +20,18 @@ else {
         
         </div>
         <div class="user-info">
+        <?php if ((isset($_SESSION['account_selected'])?$_SESSION['account_selected']:null)) {
+?>
+          <div class="greeting"><?php echo $_SESSION['account_selected']['primeiro_nome'];?></div>
+          <div class="username">@<?php echo $_SESSION['account_selected']['username'];?></div>
+        <?php 
+}
+else {
+?>
           <div class="greeting">Bem vindo</div>
-          <div class="username"><?php echo $_SESSION['loginADM']['primeiro_nome'];?></div>
+          <div class="username"><?php echo $_SESSION['loginADM']['primeiro_nome'];?></div> 
+        <?php 
+}?>    
           <div class="status">Status<a href="#">
             <div class="status-icon green"></div>
             Online</a></div>

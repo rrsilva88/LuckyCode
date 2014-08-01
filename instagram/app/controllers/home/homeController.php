@@ -40,6 +40,14 @@ class home extends Controller{
         echo json_encode($retorno);
        
     }
+   function ajaxSelectConta(){
+       $id = $_REQUEST['id'];
+       unset($_SESSION['account_selected']);
+       $_SESSION['account_selected'] = $_SESSION['accounts'][$id]; 
+       $retorno['status'] = true;
+       echo json_encode($retorno);
+      
+   }
     
     function ajaxMakeMenu(){
         echo '<pre>';

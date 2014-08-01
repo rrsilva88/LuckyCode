@@ -1385,7 +1385,8 @@ body.bottom-header .page-content .content {
   margin-top: 10px;
 }
 .user-info-wrapper .user-info .username {
-  font-size: 19px;
+  font-size: 16px;
+  width: 110px;
 }
 .user-info-wrapper .user-info .greeting {
   font-size: 19px;

@@ -89,17 +89,34 @@ class Controller extends System{
    } 
    
    function getContasInstagram(){
-        $model = new Model();
+        $model = new Model();   
+        if(isset($_SESSION['accounts'])){
+            unset($_SESSION['accounts']);
+        }
         $contas = $model->getContasInstagram($_SESSION['loginADM']['id_user']);
         if(is_array($contas)){
-            if(isset($_SESSION['accounts'])){
-                unset($_SESSION['accounts']);
-                $_SESSION['accounts'] = $contas;
-            }else{
-                $_SESSION['accounts'] = $contas;
+            
+            foreach($contas as $k=>$v){
+                    $contas[$k]['id_select'] = $k;
+                    $nome = explode(' ',$v['nome']);
+                    $contas[$k]['primeiro_nome'] = $nome[0];
+                    if(isset($nome[1])){
+                        $contas[$k]['sobrenome'] = $nome[1];
+                    }
             }
+        
+            
+                $_SESSION['accounts'] = $contas;
+            
+            if(!isset($_SESSION['account_selected'])){
+                $_SESSION['account_selected'] = $contas[0];
+            }
+            
+            
         }
    }  
+   
+   
    
    function getMenu($id_admin){
         $model = new Model();

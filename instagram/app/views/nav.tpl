@@ -38,38 +38,34 @@
       <!-- END TOP NAVIGATION MENU -->
       <!-- BEGIN CHAT TOGGLER -->
       <div class="pull-right">
-        <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notificações">
+        <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Contas">
           <div class="user-details">
-            <div class="username"> {if $dwoo.session.notificacoes.news}<span class="badge badge-important">{$dwoo.session.notificacoes.news}</span>{/if}{$dwoo.session.loginADM.primeiro_nome} <span class="bold">{$dwoo.session.loginADM.sobrenome}</span> </div>
+            <div class="username"> {if $dwoo.session.notificacoes.news}<span class="badge badge-important">{$dwoo.session.notificacoes.news}</span>{/if}@{$dwoo.session.account_selected.username}<span class="bold"></span></div>
           </div>
           <div class="iconset top-down-arrow"></div>
           </a>
           <div id="notification-list" style="display:none">
             <div style="width:300px">
-              <div class="notification-messages info">
-                <div class="user-profile"> <img src="assets/img/profiles/d.jpg"  alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35"> </div>
-                <div class="message-wrapper">
-                  <div class="heading"> Lisa - Comentou sua foto </div>
-                  <div class="description"> Show de bola</div>
-                  <div class="date pull-left">Agora </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
-              <div class="notification-messages danger">
-                       <div class="user-profile"> <img src="assets/img/profiles/d.jpg"  alt="" data-src="assets/img/profiles/d.jpg" data-src-retina="assets/img/profiles/d2x.jpg" width="35" height="35"> </div>
-                <div class="message-wrapper">
-                  <div class="heading"> Atividade 1 </div>
-                  <div class="description"> Concluída com sucesso! </div>
-                  <div class="date pull-left"> 2 min</div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
+            
+            
+              {foreach $dwoo.session.accounts conta}  
+                      <div class="notification-messages info" onclick="SelecionarConta('{$conta.id_select}')">
+                        <div class="user-profile"> <img src="{$conta.picture}"  alt="" data-src="{$conta.picture}" data-src-retina="{$conta.picture}" width="35" height="35"> </div>
+                        <div class="message-wrapper">
+                          <div class="heading"> @{$conta.username}</div>
+                          <div class="description"> {$conta.nome}</div>
+                          <div class="date pull-left"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+              {/foreach}
+           
              
             </div>
           </div>
           <div class="profile-pic"> 
-          {if $dwoo.session.accounts.0.picture}
-                <img src="{$dwoo.session.accounts.0.picture}"  alt="" data-src="{$dwoo.session.accounts.0.picture}" data-src-retina="{$dwoo.session.accounts.0.picture}" width="35" height="35" /> 
+          {if $dwoo.session.account_selected.picture}
+                <img src="{$dwoo.session.account_selected.picture}"  alt="" data-src="{$dwoo.session.account_selected.picture}" data-src-retina="{$dwoo.session.account_selected.picture}" width="35" height="35" /> 
               {else}
                 <img src="assets/img/profiles/avatar_small.jpg"  alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> 
           {/if}

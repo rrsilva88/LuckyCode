@@ -4,16 +4,21 @@
       <div class="user-info-wrapper">
      
         <div class="profile-wrapper"> 
-            {if $dwoo.session.accounts.0.picture}
-                <img src="{$dwoo.session.accounts.0.picture}"  alt="" data-src="{$dwoo.session.accounts.0.picture}" data-src-retina="{$dwoo.session.accounts.0.picture}" width="69" height="69" />     
+            {if $dwoo.session.account_selected.picture}
+                <img src="{$dwoo.session.account_selected.picture}"  alt="" data-src="{$dwoo.session.account_selected.picture}" data-src-retina="{$dwoo.session.account_selected.picture}" width="69" height="69" />     
             {else}
                 <img src="assets/img/profiles/avatar.jpg"  alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" /> 
             {/if}
         
         </div>
         <div class="user-info">
+        {if $dwoo.session.account_selected}
+          <div class="greeting">{$dwoo.session.account_selected.primeiro_nome}</div>
+          <div class="username">@{$dwoo.session.account_selected.username}</div>
+        {else}
           <div class="greeting">Bem vindo</div>
-          <div class="username">{$dwoo.session.loginADM.primeiro_nome}</div>
+          <div class="username">{$dwoo.session.loginADM.primeiro_nome}</div> 
+        {/if}    
           <div class="status">Status<a href="#">
             <div class="status-icon green"></div>
             Online</a></div>
