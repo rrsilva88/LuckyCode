@@ -12,7 +12,8 @@
 <link href="{$dwoo.session.sys.base_url}assets/plugins/jquery-metrojs/MetroJs.css" rel="stylesheet" type="text/css" />
 
 
-
+<link href="{$dwoo.session.sys.base_url}assets/plugins/bootstrap-tag/bootstrap-tagsinput.css" rel="stylesheet" type="text/css"/>
+<link href="{$dwoo.session.sys.base_url}assets/plugins/boostrap-slider/css/slider.css" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" type="text/css" href="{$dwoo.session.sys.base_url}assets/plugins/shape-hover/css/demo.css" />
 <link rel="stylesheet" type="text/css" href="{$dwoo.session.sys.base_url}assets/plugins/shape-hover/css/component.css" />
 <link rel="stylesheet" type="text/css" href="{$dwoo.session.sys.base_url}assets/plugins/owl-carousel/owl.carousel.css" />

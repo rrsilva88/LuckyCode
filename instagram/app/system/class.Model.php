@@ -150,6 +150,22 @@ class Model{
        }  
     }
    
+    
+    function getAtividadesUser($id_user){
+         global $DB;  
+        $SQL = 'SELECT *,(SELECT count(*) total from log_atividade where id_atividade = at.id_atividade ) as total_log FROM atividade at
+                WHERE id_user = "'.$id_user.'"
+                ORDER BY 
+                id_atividade ASC;';
+        if($ret = $DB->GetAll($SQL)){
+            return $ret;
+       }else{
+            return $DB->ErrorMsg();
+       }  
+    }
+    
+    
+   
    
    
     

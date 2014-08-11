@@ -3,9 +3,9 @@
 class AtividadesModel extends Model{
     
     
-    function GetAll($dados){
+    function GetAll(){
       global $DB;
-       $select = 'SELECT * FROM atividade
+       $select = 'SELECT * FROM atividade where status = 1;
        ';  
        if($ret = $DB->GetAll($select)){
             return $ret;
@@ -76,7 +76,26 @@ class AtividadesModel extends Model{
        }else{
             return $DB->ErrorMsg();
        }  
-    }           
+    } 
+    
+    
+    
+    
+    function SaveLog($dados){
+              global $DB;
+        if($insert = $this->autoInsert('log_atividade',$dados)){
+            if(is_numeric($insert)){
+                $ret['id'] = $insert;
+            }else{
+            
+                return $DB->ErrorMsg(); 
+                #$ret = $insert;
+            }
+            return $ret;
+        }else{
+            return $DB->ErrorMsg(); 
+        }
+    }          
     
 }
 

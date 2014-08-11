@@ -72,8 +72,8 @@ if ($this->isArray($_fh0_data) === true)
                       <div class="row">
                         <div class="col-md-12 ">                          
                           <div class="user-comment-wrapper">
-                            <div class="comment">
-                              <center>
+                            <div class="comment col-md-12">
+                               <center>
                             <i class="fa fa-instagram" style="font-size:50px;"></i>
                                 <div class=" text-black bold">Adicionar Conta</div>
                                  <div class="preview-wrapper">Você pode adicionar quantas contas quiser</div>

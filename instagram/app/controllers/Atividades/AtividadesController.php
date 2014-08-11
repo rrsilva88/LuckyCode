@@ -1,5 +1,6 @@
 <?php
 include MODELS.'Atividades/AtividadesModel.php';
+include MODELS.'Contas/ContasModel.php';
 
 class Atividades extends Controller{
     function index(){
@@ -16,7 +17,7 @@ class Atividades extends Controller{
        $dados['size_md'] = '12';
        $dados['size_vlg'] = '12';
        $dados['size_sm'] = '12';
-       $dados['fields'] = array('Usuário','Tipo','Quantidade','Data','Ações');
+       $dados['fields'] = array('Usuário','Tipo','Quantidade','Data','Status','Ações');
        $dados['url_dados'] = BASE_URL."Atividades/ajaxListAtividades";
        $dados['order_table']['field'] = 0;
        $dados['order_table']['tipo'] = 'asc';
@@ -38,8 +39,8 @@ class Atividades extends Controller{
     function ajaxListAtividades(){
           // FIX BUG CHROME
           #header('Access-Control-Allow-Origin: *');
-          $aColumns = array('tipo','quantidade','data_criada', 'id_atividade');
-          $cColumns = array('nome_usuario','tipo','quantidade','data_criada', 'id_atividade');
+          $aColumns = array('tipo','quantidade','data_criada','status', 'id_atividade');
+          $cColumns = array('nome_usuario','tipo','quantidade','data_criada','status', 'id_atividade');
            /* Indexed column (used for fast and accurate table cardinality) */
             $sIndexColumn = "id_atividade";
              
@@ -150,7 +151,7 @@ class Atividades extends Controller{
              * Get data to display
              */
             $sQuery = "
-                SELECT SQL_CALC_FOUND_ROWS ".str_replace(" , ", " ", implode(", ", $aColumns)).",su.id_user,su.nome as nome_usuario
+                SELECT SQL_CALC_FOUND_ROWS ".str_replace(" , ", " ", implode(",tb.", $aColumns)).",su.id_user,su.nome as nome_usuario
                 
                 FROM   $sTable tb
                 INNER JOIN sys_users su ON su.id_user = tb.id_user
@@ -160,8 +161,8 @@ class Atividades extends Controller{
             ";
             
             $model = new AtividadesModel(); 
-          #  echo "<pre>";
-          # echo $sQuery;
+        #    echo "<pre>";
+        #   echo $sQuery;
             $rResult = $model->Query($sQuery);
             
              
@@ -213,13 +214,32 @@ class Atividades extends Controller{
                        
                         switch($aRow[$cColumns[$i]]){
                             case 1:
-                                $row[] = '<button type="button" class="btn btn-small btn-info btn-cons">Likes</button>';    
+                                $row[] = '<span class="label label-info">Likes</span>';    
                             break;
                             case 2:
-                                $row[] = '<button type="button" class="btn btn-small btn-primary btn-cons">Comentários</button>';    
+                                $row[] = '<span class="label label-success">Comentários</span>';    
                             break;
                             case 3:
-                                $row[] = '<button type="button" class="btn btn-small btn-danger btn-cons">Seguidores</button>';    
+                                $row[] = '<span class="label label-warning">Seguidores</span>';    
+                            break;
+                        }
+                        
+                         
+                         
+                    }else if ( $cColumns[$i] == 'status' ){
+                       
+                        switch($aRow[$cColumns[$i]]){
+                            case 1:
+                                $row[] = '<span class="label label-info">Ativo</span>';    
+                            break;
+                            case 2:
+                                $row[] = '<span class="label label-warning">Processando</span>';    
+                            break;
+                            case 3:
+                                $row[] = '<span class="label label-success">Concluída</span>';    
+                            break;
+                            case 4:
+                                $row[] = '<span class="label label-important">Cancelada</span>';    
                             break;
                         }
                         
@@ -288,35 +308,15 @@ class Atividades extends Controller{
     function Criar(){
         
         if(isset($_SESSION['accounts'])){
-            
-             global $instagram;
-             $instagram->setAccessToken($_SESSION['account_selected']['access_token']);
-           #  $feed = $instagram->getUserMediaPag('self',20,'742694257546252578_275684371');
-             $feed = $instagram->getUserMediaPag('self',20);
-             #$feed = $instagram->getUserFeed();
-             
-             if(isset($feed->meta->error_type)){
-                  $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/error_callback_instagram.tpl');  
-             }else{
-                // $result = $instagram->pagination($feed);
-                 #echo '<pre>';    
-                # print_r($feed);
-                # die();
-                 
-                 $dados['api'] = $this->object_to_array_recusive($feed);
-                 
-             #    echo '<pre>';
-             #    print_r($dados['api']);
-             #    die();
-                 $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/list.tpl',$dados);
-                 $scroll = array();
-                 if(isset($dados['api']['pagination']['next_max_id'])){
-                    $scroll['max_id'] = $dados['api']['pagination']['next_max_id'];
-                 }
-                 $data['content']['rows'][1]['widgets'][2] =  $this->dwoo->get('app/views/Atividades/ScriptScroll.tpl',$scroll);
-             }
-             
-             
+            global $instagram;
+            $instagram->setAccessToken($_SESSION['account_selected']['access_token']);
+            $user = $instagram->getUser();
+            $dados['api'] = $this->object_to_array_recusive($user);
+         #   echo '<pre>';
+          #  print_r($dados);
+            #die();
+            $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/criar.tpl',$dados);
+         
         }else{
             $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/login_instagram.tpl');
         }
@@ -325,23 +325,68 @@ class Atividades extends Controller{
        echo $html;  
       
     }
+    function Selecionar(){
+            if(isset($_SESSION['accounts'])){
+                
+                 global $instagram;
+                 $instagram->setAccessToken($_SESSION['account_selected']['access_token']);
+               #  $feed = $instagram->getUserMediaPag('self',20,'742694257546252578_275684371');
+                 $feed = $instagram->getUserMediaPag('self',20);
+                 #$feed = $instagram->getUserFeed();
+                 
+                 if(isset($feed->meta->error_type)){
+                      $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/error_callback_instagram.tpl');  
+                 }else{
+                    // $result = $instagram->pagination($feed);
+                     #echo '<pre>';    
+                    # print_r($feed);
+                    # die();
+                     
+                     $dados['api'] = $this->object_to_array_recusive($feed);
+                     
+                 #    echo '<pre>';
+                 #    print_r($dados['api']);
+                 #    die();
+                     $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/list.tpl',$dados);
+                     $scroll = array();
+                     if(isset($dados['api']['pagination']['next_max_id'])){
+                        $scroll['max_id'] = $dados['api']['pagination']['next_max_id'];
+                     }
+                     $data['content']['rows'][1]['widgets'][2] =  $this->dwoo->get('app/views/Atividades/ScriptScroll.tpl',$scroll);
+                 }
+                 
+                 
+            }else{
+                $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/login_instagram.tpl');
+            }
+                
+            $html = $this->dwoo->get('app/views/index.tpl', $data);
+           echo $html;   
+    }
     
     function Configurar(){
        global $instagram;
+       $dados = array();
        $params = $this->getParams();
        $tipo = $params[0];
        $instagram->setAccessToken($_SESSION['account_selected']['access_token']);
+       $mContas = new ContasModel();
+       $dados['limit_qtd'] = $mContas->getTotalRobots();
+       
        switch($tipo){
            case 'Midia':
                $media_id = $params[1];
                $media = $instagram->getMedia($media_id);
                $result = $this->object_to_array_recusive($media);
-               $dados = array();
+               
+             
                $dados['pic'] = $result['data'];
                $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/config_media.tpl',$dados);        
            break;
            case 'Seguidores':
-           
+             $user = $instagram->getUser();
+             $dados['api'] = $this->object_to_array_recusive($user);
+             $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/config_seguidores.tpl',$dados);    
            break;
        }
        $html = $this->dwoo->get('app/views/index.tpl', $data);

@@ -48,7 +48,7 @@ class Controller extends System{
        
        
            $status = false;
-           if($controller == 'home' && ($action == 'index' || $action == 'Logout' || $action == 'MakeLogin'|| $action == 'ajaxInstagramCallback') || strpos($action, "ajax") !== false || strpos($controller, "ajax") !== false){
+           if($controller == 'home' && ($action == 'index' || $action == 'Logout' || $action == 'MakeLogin'|| $action == 'ajaxInstagramCallback') || strpos($action, "ajax") !== false || strpos($controller, "ajax") !== false || $controller == 'Cron'){
               $status = true; 
            }else{
                
@@ -114,7 +114,19 @@ class Controller extends System{
             
             
         }
-   }  
+   } 
+   
+   function getAtividadesUser(){
+       $model = new Model();   
+        if(isset($_SESSION['atividades'])){
+            unset($_SESSION['atividades']);
+        }
+        $atividades = $model->getAtividadesUser($_SESSION['loginADM']['id_user']);
+        if(is_array($atividades)){
+                $_SESSION['atividades'] = $atividades;
+        }   
+       
+   } 
    
    
    

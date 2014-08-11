@@ -40,6 +40,8 @@ class ContasModel extends Model{
     }
     
     
+    
+    
     function Save($dados){
               global $DB;
         if($insert = $this->autoInsert('contas_user',$dados)){
@@ -77,6 +79,72 @@ class ContasModel extends Model{
             return $DB->ErrorMsg();
        }  
     }           
+    
+    function GetRobot(){
+        global $DB;
+       $select = 'SELECT * FROM contas WHERE status = 1 ORDER BY RAND() LIMIT 0,1';  
+       
+       if($ret = $DB->GetAll($select)){
+            return $ret;
+       }else{
+            return $DB->ErrorMsg();
+       }
+        
+    }
+    
+    function GetRobots($limit,$id_atividade){
+       global $DB;
+        
+       $select = '
+      
+      
+                    SELECT c.*,c.id_conta as id_robo FROM contas c
+                    WHERE c.id_conta 
+                    NOT IN (SELECT id_conta FROM log_atividade WHERE id_atividade = '.$id_atividade.')
+                    AND c.status = 1
+                    ORDER BY RAND() 
+                    LIMIT 0,'.$limit;  
+       
+         
+       if($ret = $DB->GetAll($select)){
+            return $ret;
+       }else{
+            return $DB->ErrorMsg();
+       }
+        
+    }
+    
+    function getTotalRobots(){
+         global $DB;
+       $select = 'SELECT count(*) as total FROM contas WHERE status = 1';  
+       
+       if($ret = $DB->GetAll($select)){
+            return $ret[0]['total'];
+       }else{
+            return $DB->ErrorMsg();
+       }
+        
+    }
+    function getTotalLogs($id_atividade){
+         global $DB;
+       $select = 'SELECT count(*) as total FROM log_atividade WHERE id_atividade = '.$id_atividade;  
+       
+       if($ret = $DB->GetAll($select)){
+            return $ret[0]['total'];
+       }else{
+            return $DB->ErrorMsg();
+       }
+        
+    }
+    
+    
+    function UpdateRobo($dados){
+        $id_conta = $dados['id_conta'];
+        unset($dados['id_conta']);
+        $ret = $this->autoUpdate('contas',$dados,'WHERE id_conta="'.$id_conta.'"');
+        return $ret;
+    }
+    
     
 }
 

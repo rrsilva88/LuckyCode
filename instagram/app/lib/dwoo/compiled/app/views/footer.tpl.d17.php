@@ -48,7 +48,8 @@
 <!-- BEGIN CORE TEMPLATE JS -->
 
 
-
+<script type="text/javascript" src="<?php echo $_SESSION['sys']['base_url'];?>assets/plugins/bootstrap-tag/bootstrap-tagsinput.min.js"></script>
+<script type="text/javascript" src="<?php echo $_SESSION['sys']['base_url'];?>assets/plugins/boostrap-slider/js/bootstrap-slider.js"></script>
 <script src="<?php echo $_SESSION['sys']['base_url'];?>assets/plugins/jquery-notifications/js/messenger.min.js" type="text/javascript"></script>
 <script src="<?php echo $_SESSION['sys']['base_url'];?>assets/plugins/jquery-notifications/js/messenger-theme-future.js" type="text/javascript"></script>
 
@@ -56,6 +57,8 @@
 <script type="text/javascript" src="<?php echo $_SESSION['sys']['base_url'];?>assets/plugins/jquery-notifications/js/demo/location-sel.js"></script>
 <script type="text/javascript" src="<?php echo $_SESSION['sys']['base_url'];?>assets/plugins/jquery-notifications/js/demo/theme-sel.js"></script>
 <script type="text/javascript" src="<?php echo $_SESSION['sys']['base_url'];?>assets/plugins/jquery-notifications/js/demo/demo.js"></script>
+
+
 
 
 <script src="<?php echo $_SESSION['sys']['base_url'];?>assets/js/core.js" type="text/javascript"></script>

@@ -118,6 +118,15 @@ class home extends Controller{
       
     }
     
+    function ajaxAtividades(){
+       # $this->getAtividadesUser();
+        echo '<pre>';
+        print_r($_SERVER);
+        
+        die();
+        
+    }
+    
 
     function ajaxSESS(){
         echo '<pre>';
