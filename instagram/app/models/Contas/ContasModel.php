@@ -137,6 +137,17 @@ class ContasModel extends Model{
         
     }
     
+    function getAccountRobo(){
+         global $DB;
+       $select = 'SELECT * FROM contas WHERE status = 0 LIMIT 1';  
+       
+       if($ret = $DB->GetAll($select)){
+            return $ret[0];
+       }else{
+            return $DB->ErrorMsg();
+       }
+    }
+    
     
     function UpdateRobo($dados){
         $id_conta = $dados['id_conta'];
@@ -144,6 +155,23 @@ class ContasModel extends Model{
         $ret = $this->autoUpdate('contas',$dados,'WHERE id_conta="'.$id_conta.'"');
         return $ret;
     }
+    
+    function SaveRobo($dados){
+              global $DB;
+        if($insert = $this->autoInsert('contas',$dados)){
+            if(is_numeric($insert)){
+                $ret['id'] = $insert;
+            }else{
+            
+                return $DB->ErrorMsg(); 
+                #$ret = $insert;
+            }
+            return $ret;
+        }else{
+            return $DB->ErrorMsg(); 
+        }
+    }
+    
     
     
 }

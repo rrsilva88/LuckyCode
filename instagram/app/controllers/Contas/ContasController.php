@@ -182,6 +182,53 @@ class Contas extends Controller{
         echo json_encode($retorno);
     }
     
+    function ajaxConvertRobos(){
+        
+         $model = new ContasModel();
+         $robos = file ('contas_robos.txt');
+         foreach($robos as $robo){
+            $access = explode(':',$robo);
+            $conta = array();
+            $conta['usuario'] =  $access['0'];
+            $conta['senha'] =  $access['1'];
+            $conta['status'] = 0;
+            $model->SaveRobo($conta);
+         }    
+    }
+    function ajaxListRobo(){
+         $model = new ContasModel();
+         
+         $robo = $model->getAccountRobo();
+         
+         #echo '<pre>';
+         #print_r($robo);
+              echo CALLBACK_INSTAGRAM_ROBO;
+          echo '<br>';
+         $instagram = new Instagram(array(
+              'apiKey'      => INSTA_KEY,
+              'apiSecret'   => INSTA_SECRET,
+              'apiCallback' => CALLBACK_INSTAGRAM_ROBO
+            ));
+            $config = array(
+                  'basic',
+                  'likes',
+                  'comments',
+                  'relationships'
+            );
+
+
+            $link = $instagram->getLoginUrl($config);
+            $robo['link'] = "<a href='$link' target='_blank'>Autenticar</a>";
+         
+              echo  $this->dwoo->get('app/views/Contas/robo.tpl',$robo);
+         
+         
+       
+          
+         
+          
+    }
+    
    function teste(){
        echo "AQUI!";
    }

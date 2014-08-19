@@ -87,28 +87,48 @@ class home extends Controller{
         $code = $_GET['code'];
         $retApi = $instagram->getOAuthToken($code);
         
-    
-        
-        if($retApi->access_token){
-            $dados['id_user'] = $_SESSION['loginADM']['id_user'];
-            $dados['access_token'] = $retApi->access_token;
-            $dados['instagram_id'] = $retApi->user->id;
-            $dados['nome'] = $retApi->user->full_name;
-            $dados['username'] = $retApi->user->username;
-            $dados['picture'] = $retApi->user->profile_picture;
-            $dados['code'] = $code;
-            $model = new homeModel();
-            $model->SaveContaInsta($dados);
-            $this->getContasInstagram();
-            $data['sidebar'] = true; 
-            $data['content']['rows'][1]['widgets'][1] =  $dwoo->get('app/views/callback_instagram.tpl',$dados);  
-            
-            
+   
+                     
+        if(isset($_GET['type'])){
+                 echo '<pre>';
+
+               if($retApi->access_token){
+                    $dados['access_token'] = $retApi->access_token;
+                    $dados['nome'] = $retApi->user->full_name;
+                       $dados['code'] = $code;
+                    $dados['usuario'] = $retApi->user->username;
+                    $dados['status'] = 1;
+                    $model = new homeModel();
+                    
+                    echo "<pre>";
+                    print_r($dados);
+                    $ret = $model->SaveContaInstaRobo($dados);
+                    print_r($ret);
+                }
         }else{
-            
-            $data['sidebar'] = true; 
-            $data['content']['rows'][1]['widgets'][1] =  $dwoo->get('app/views/error_callback_instagram.tpl');  
-           
+                
+                if($retApi->access_token){
+                    $dados['id_user'] = $_SESSION['loginADM']['id_user'];
+                    $dados['access_token'] = $retApi->access_token;
+                    $dados['instagram_id'] = $retApi->user->id;
+                    $dados['nome'] = $retApi->user->full_name;
+                    $dados['username'] = $retApi->user->username;
+                    $dados['picture'] = $retApi->user->profile_picture;
+                    $dados['code'] = $code;
+                    $model = new homeModel();
+                    $model->SaveContaInsta($dados);
+                    $this->getContasInstagram();
+                    $data['sidebar'] = true; 
+                    $data['content']['rows'][1]['widgets'][1] =  $dwoo->get('app/views/callback_instagram.tpl',$dados);  
+                    
+                    
+                }else{
+                    
+                    $data['sidebar'] = true; 
+                    $data['content']['rows'][1]['widgets'][1] =  $dwoo->get('app/views/error_callback_instagram.tpl');  
+                   
+                }
+                
         }
         
         $html = $this->dwoo->get('app/views/index.tpl', $data);
@@ -117,6 +137,7 @@ class home extends Controller{
             
       
     }
+   
     
     function ajaxAtividades(){
        # $this->getAtividadesUser();
