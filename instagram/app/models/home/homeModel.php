@@ -53,7 +53,7 @@ class homeModel extends Model{
          global $DB;
         
         $sql = "
-        INSERT INTO contas_user (nome,usuario,access_token,code,status) 
+        INSERT INTO contas (nome,usuario,access_token,code,status) 
             VALUES ('".$dados['nome']."','".$dados['usuario']."','".$dados['access_token']."','".$dados['code']."',1)
         ON DUPLICATE KEY UPDATE 
             nome = '".$dados['nome']."',

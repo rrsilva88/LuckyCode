@@ -113,7 +113,7 @@ define("NAME_EMAIL",'LuckyCode');
 #INSTAGRAM
 
 define("CALLBACK_INSTAGRAM",BASE_URL.'ajaxInstagramCallback');
-define("CALLBACK_INSTAGRAM_ROBO",BASE_URL.'ajaxInstagramCallback?type=1');
+
         
         if(isset($_GET['d'])){
             echo CALLBACK_INSTAGRAM;

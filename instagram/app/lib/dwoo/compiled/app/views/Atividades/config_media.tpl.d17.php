@@ -29,7 +29,7 @@
                               <div class="form-group">
                                 <label class="form-label">Quantidade</label>
                                 <div class="controls">
-                                <h1 class="semi-bold" id='qtd_number'></h1>
+                                <h1 class="semi-bold" id='qtd_number'>0</h1>
                                   <input type="text" name='quantidade' id='sliderQTD'  class="slider-element form-control span12" data-slider-value="0" data-slider-step="1" data-slider-max="<?php echo $this->scope["limit_qtd"];?>" data-slider-orientation="horizontal" data-slider-selection="after" >
                                 </div>
                               </div>

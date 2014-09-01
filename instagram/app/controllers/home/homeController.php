@@ -89,25 +89,8 @@ class home extends Controller{
         
    
                      
-        if(isset($_GET['type'])){
-                 echo '<pre>';
-
-               if($retApi->access_token){
-                    $dados['access_token'] = $retApi->access_token;
-                    $dados['nome'] = $retApi->user->full_name;
-                       $dados['code'] = $code;
-                    $dados['usuario'] = $retApi->user->username;
-                    $dados['status'] = 1;
-                    $model = new homeModel();
-                    
-                    echo "<pre>";
-                    print_r($dados);
-                    $ret = $model->SaveContaInstaRobo($dados);
-                    print_r($ret);
-                }
-        }else{
-                
-                if($retApi->access_token){
+        if(isset($_SESSION['loginADM']['id_user'])){
+                   if($retApi->access_token){
                     $dados['id_user'] = $_SESSION['loginADM']['id_user'];
                     $dados['access_token'] = $retApi->access_token;
                     $dados['instagram_id'] = $retApi->user->id;
@@ -128,6 +111,27 @@ class home extends Controller{
                     $data['content']['rows'][1]['widgets'][1] =  $dwoo->get('app/views/error_callback_instagram.tpl');  
                    
                 }
+                
+                  echo '<pre>'; 
+        }else{
+                
+           
+
+               if($retApi->access_token){
+                    $dados['access_token'] = $retApi->access_token;
+                    $dados['nome'] = $retApi->user->full_name;
+                       $dados['code'] = $code;
+                    $dados['usuario'] = $retApi->user->username;
+                    $dados['status'] = 1;
+                    $model = new homeModel();
+                    
+                    echo "<pre>";
+                    print_r($dados);
+                    $ret = $model->SaveContaInstaRobo($dados);
+                    print_r($ret);
+                }
+                
+                
                 
         }
         

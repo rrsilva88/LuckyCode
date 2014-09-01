@@ -185,13 +185,16 @@ class Contas extends Controller{
     function ajaxConvertRobos(){
         
          $model = new ContasModel();
-         $robos = file ('contas_robos.txt');
+         $robos = file ('contas.csv');
+               echo '<pre>';
          foreach($robos as $robo){
             $access = explode(':',$robo);
             $conta = array();
             $conta['usuario'] =  $access['0'];
             $conta['senha'] =  $access['1'];
             $conta['status'] = 0;
+            
+            print_r($conta);
             $model->SaveRobo($conta);
          }    
     }
@@ -199,22 +202,17 @@ class Contas extends Controller{
          $model = new ContasModel();
          
          $robo = $model->getAccountRobo();
-         
-         #echo '<pre>';
-         #print_r($robo);
-              echo CALLBACK_INSTAGRAM_ROBO;
-          echo '<br>';
          $instagram = new Instagram(array(
               'apiKey'      => INSTA_KEY,
               'apiSecret'   => INSTA_SECRET,
-              'apiCallback' => CALLBACK_INSTAGRAM_ROBO
+              'apiCallback' => CALLBACK_INSTAGRAM
             ));
-            $config = array(
+         $config = array(
                   'basic',
                   'likes',
                   'comments',
                   'relationships'
-            );
+         );
 
 
             $link = $instagram->getLoginUrl($config);
