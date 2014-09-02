@@ -195,12 +195,13 @@ class Contas extends Controller{
             $conta['status'] = 0;
             
             print_r($conta);
-            $model->SaveRobo($conta);
+           $ret =  $model->SaveRobo($conta);
+           print_r($ret);
+           echo "<h1:";
          }    
     }
     function ajaxListRobo(){
          $model = new ContasModel();
-         
          $robo = $model->getAccountRobo();
          $instagram = new Instagram(array(
               'apiKey'      => INSTA_KEY,
@@ -213,19 +214,10 @@ class Contas extends Controller{
                   'comments',
                   'relationships'
          );
-
-
-            $link = $instagram->getLoginUrl($config);
-            $robo['link'] = "<a href='$link' target='_blank'>Autenticar</a>";
-         
-              echo  $this->dwoo->get('app/views/Contas/robo.tpl',$robo);
-         
-         
-       
-          
-         
-          
-    }
+         $link = $instagram->getLoginUrl($config);
+         $robo['link'] = "<a href='$link' target='_blank'>Autenticar</a>";
+         echo  $this->dwoo->get('app/views/Contas/robo.tpl',$robo);
+         }
     
    function teste(){
        echo "AQUI!";

@@ -38,10 +38,14 @@ class Cron extends Controller{
          $mAtividades = new AtividadesModel();
          $mContas = new ContasModel();
          $ret = $mAtividades->Data($id_atividade);
+         
+         echo "<pre>";
+         print_r($ret);
+         
          $updateStatus['status'] = 2;
          $updateStatus['id_atividade'] = $id_atividade;
-         
          $mAtividades->Update($updateStatus);
+         
          if(is_array($ret)){
              $atividade = $ret['0'];
              $total_pag = ceil($atividade['quantidade'] / 100);
@@ -55,15 +59,25 @@ class Cron extends Controller{
              if($total_pag_robos < $total_pag){
                 $total_pag = $total_pag_robos;
              }
+             
+             echo "<pre>";
+             print_r($total_robots);
+             echo '<br>';
+             print_r($total_pag_robos);
+             echo '<br>';
+             print_r($total_pag);
           // Executa por quantidade de paginas   
           for($i = 0; $i <= $total_pag; $i++){
                   // Busca 100 contas randomicas 
                   $contas = $mContas->GetRobots(100,$atividade['id_atividade']); 
-                ;
+                  
                   if(is_array($contas)){
                       foreach($contas as $k=>$v){
                             $instagram->setAccessToken($v['access_token']);
                             $user = $instagram->getUser();
+                            
+                            echo '<pre>';
+                            print_r($user);
                             switch($atividade['tipo']){
                                  case 1:  // LIKE
                                  case '1':  // LIKE
@@ -108,6 +122,10 @@ class Cron extends Controller{
                                 $updateRobo['status_message'] = $app->meta->error_message;
                                 $mContas->UpdateRobo($updateRobo);
                             }
+                            
+                                  
+                            print_r($app);
+                      
             #                sleep(1);
                        }
                    }
