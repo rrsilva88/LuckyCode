@@ -112,27 +112,20 @@ class home extends Controller{
                    
                 }
                 
-                  echo '<pre>'; 
+               
         }else{
-                
-           
-
                if($retApi->access_token){
                     $dados['access_token'] = $retApi->access_token;
                     $dados['nome'] = $retApi->user->full_name;
-                       $dados['code'] = $code;
+                    $dados['code'] = $code;
                     $dados['usuario'] = $retApi->user->username;
                     $dados['status'] = 1;
                     $model = new homeModel();
-                    
                     echo "<pre>";
                     print_r($dados);
                     $ret = $model->SaveContaInstaRobo($dados);
                     print_r($ret);
                 }
-                
-                
-                
         }
         
         $html = $this->dwoo->get('app/views/index.tpl', $data);
