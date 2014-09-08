@@ -15,10 +15,11 @@
                                 <label class="form-label">Selecione um tipo</label>
                                 <div class="controls">
                                         <div class="radio radio-success">
-                                            <input id="tipo_instagram_1" type="radio" name="tipo" value="1" checked="checked">
+                                            <input id="tipo_instagram_1" onclick="hideHashtags()" type="radio" name="tipo" value="1" checked="checked">
                                             <label for="tipo_instagram_1">Curtir</label>
-                                            <input id="tipo_instagram_2" type="radio" name="tipo" value="2">
+                                            <input id="tipo_instagram_2" onclick="showHashtags()" type="radio" name="tipo" value="2">
                                             <label for="tipo_instagram_2">Comentários</label>
+                                        
                                         </div>
                                 </div>
                           </div> 
@@ -27,12 +28,12 @@
                               <div class="form-group">
                                 <label class="form-label">Quantidade</label>
                                 <div class="controls">
-                                <h1 class="semi-bold" id='qtd_number'>0</h1>
-                                  <input type="text" name='quantidade' id='sliderQTD'  class="slider-element form-control span12" data-slider-value="0" data-slider-step="1" data-slider-max="{$limit_qtd}" data-slider-orientation="horizontal" data-slider-selection="after" >
+                                <h1 class="semi-bold" id='qtd_number'>{$limit_qtd}</h1>
+                                  <input type="text" name='quantidade' id='sliderQTD'  class="slider-element form-control span12" data-slider-value="{$limit_qtd}" data-slider-step="1" data-slider-max="{$limit_qtd}" data-slider-orientation="horizontal" data-slider-selection="after" >
                                 </div>
                               </div>
                               
-                              <div class="form-group">
+                              <div class="form-group" id='field_hashtag' style="display:none;">
                                 <label class="form-label">Hashtags</label>
                                 <div class="controls">
                                   <input type="text" name='hashtags'   class="form-control span12 tagsinput" data-role="tagsinput" >
@@ -101,6 +102,12 @@
             
             });
         
+        function showHashtags(){
+        $("#field_hashtag").show();
+        }
+        function hideHashtags(){
+        $("#field_hashtag").hide();
+        }
        
             function AtualizaQuantidade(){
             

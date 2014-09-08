@@ -38,6 +38,36 @@ class AtividadesModel extends Model{
             return $DB->ErrorMsg();
        }
     }
+    function GetLogAtividade($id_atividade){
+       global $DB;
+       $select = 'SELECT la.*,c.usuario,DATE_FORMAT(la.data, "%d/%m/%Y %H:%i:%s") as data FROM log_atividade la 
+        INNER JOIN contas c
+        ON c.id_conta = la.id_conta
+        WHERE la.id_atividade ="'.$id_atividade.'"
+        ORDER BY la.id_log_atividade DESC
+        LIMIT 0,10
+       ;';  
+       
+       if($ret = $DB->GetAll($select)){
+            return $ret;
+       }else{
+            return $DB->ErrorMsg();
+       }
+    }
+    
+    function GetTotalLogAtividade($id_atividade){
+       global $DB;
+       $select = 'SELECT count(*) as total FROM log_atividade 
+        WHERE id_atividade ="'.$id_atividade.'"
+        
+       ;';  
+       
+       if($ret = $DB->GetAll($select)){
+            return $ret[0]['total'];
+       }else{
+            return $DB->ErrorMsg();
+       }  
+    }
     
     
     function Save($dados){

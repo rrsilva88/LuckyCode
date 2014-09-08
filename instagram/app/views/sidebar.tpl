@@ -39,6 +39,7 @@
       
         
       </ul>
+      <!--
       <div class="side-bar-widgets">
       
         <p class="menu-title">Atividades </p>
@@ -67,6 +68,8 @@
           </div>
         </div>
       </div>
+      
+      -->
       <div class="clearfix"></div>
       <!-- END SIDEBAR MENU -->
     </div>

@@ -68,6 +68,7 @@ if ($this->isArray($_fh0_data) === true)
       
         
       </ul>
+      <!--
       <div class="side-bar-widgets">
       
         <p class="menu-title">Atividades </p>
@@ -96,6 +97,8 @@ if ($this->isArray($_fh0_data) === true)
           </div>
         </div>
       </div>
+      
+      -->
       <div class="clearfix"></div>
       <!-- END SIDEBAR MENU -->
     </div>

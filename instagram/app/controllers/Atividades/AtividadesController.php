@@ -19,7 +19,7 @@ class Atividades extends Controller{
        $dados['size_sm'] = '12';
        $dados['fields'] = array('Usuário','Tipo','Quantidade','Data','Status','Ações');
        $dados['url_dados'] = BASE_URL."Atividades/ajaxListAtividades";
-       $dados['order_table']['field'] = 0;
+       $dados['order_table']['field'] = 3;
        $dados['order_table']['tipo'] = 'asc';
        
        $dados['buttons'][1]['color'] = 'btn-primary';
@@ -282,21 +282,32 @@ class Atividades extends Controller{
     function Visualizar(){
         
         
-         $dados = $_REQUEST;
-         $params = $this->getParams();
-         $dados['id_user'] = $params[0]; 
-         $model = new AtividadesModel();
-         $uData = $model->Data($dados['id_user']);
-      
-      echo "<pre>";
-      
-      print_r($uData);
-        /*
-         $dados['title'] = '#'.$uData['0']['id_user'].' '.$uData['0']['nome'];
-         $dados['usuario'] = $uData[0];
-         $data['sidebar'] = true;   
-         $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/view.tpl', $dados);
-         */
+        $dados = $_REQUEST;
+        $params = $this->getParams();
+        $dados['id_atividade'] = $params[0]; 
+        $model = new AtividadesModel();
+        $uData = $model->Data($dados['id_atividade']);
+        
+        $totalLogs = $model->GetTotalLogAtividade($dados['id_atividade']);
+        $dados['logs'] = array();
+        if($totalLogs > 0){
+            $logs = $model->GetLogAtividade($dados['id_atividade']);    
+            $dados['logs'] = $logs ; 
+            if($totalLogs < $uData['0']['quantidade']){
+               $dados['percent'] = (($totalLogs / $uData['0']['quantidade']) * 100);
+            }else{
+               $dados['percent'] = 100;
+            } 
+        }
+       
+        
+        
+        
+        
+        $dados['atividade'] = $uData[0];
+        $data['sidebar'] = true;   
+        $data['content']['rows'][1]['widgets'][1] =  $this->dwoo->get('app/views/Atividades/view.tpl', $dados);
+        
        
        
        $html = $this->dwoo->get('app/views/index.tpl', $data);
