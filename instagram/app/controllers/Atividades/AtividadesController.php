@@ -19,8 +19,8 @@ class Atividades extends Controller{
        $dados['size_sm'] = '12';
        $dados['fields'] = array('Usuário','Tipo','Quantidade','Data','Status','Ações');
        $dados['url_dados'] = BASE_URL."Atividades/ajaxListAtividades";
-       $dados['order_table']['field'] = 3;
-       $dados['order_table']['tipo'] = 'asc';
+       $dados['order_table']['field'] = 4;
+       $dados['order_table']['tipo'] = 'desc';
        
        $dados['buttons'][1]['color'] = 'btn-primary';
        $dados['buttons'][1]['icon'] = 'fa-plus';
