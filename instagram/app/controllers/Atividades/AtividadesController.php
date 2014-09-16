@@ -4,14 +4,7 @@ include MODELS.'Contas/ContasModel.php';
 
 class Atividades extends Controller{
     function index(){
-        $model = new AtividadesModel();
-       
-       #$data['content'][1]['size'] = 12;
-       #$data['content'][1]['name'] = 'Lista de Notícias';
-       
-       #$data['content'][1]['footer'][1]['class'] = 'btn btn-success';
-       #$data['content'][1]['footer'][1]['title'] = 'Criar Notícia';
-       #$data['content'][1]['footer'][1]['href'] = "Atividades/Create";
+       $model = new AtividadesModel();
        $dados['table_id'] = 'atividades';
        $dados['table_name'] = 'Atividades';
        $dados['size_md'] = '12';
@@ -32,6 +25,8 @@ class Atividades extends Controller{
        $data['sidebar'] = true;
        $html = $this->dwoo->get('app/views/index.tpl', $data);
        echo $html; 
+       
+       
     }
     
     
